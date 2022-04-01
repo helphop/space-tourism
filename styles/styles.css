@@ -88,6 +88,17 @@ button {
   }
 }
 :root {
+  --phone-max: 37.4374rem;
+  --tab-port-min: 37.5 // 600px
+  --tab-port-max: 56.1875rem // 899px
+  --tap-land-min: 56.25rem // 900px
+  --tab-land-max: 74.9375rem // 1199px
+  --desk-min: 75rem;
+  --desk-max: 112.4375rem;
+  --desk-big-min: 112.5rem // 1800px ;
+}
+
+:root {
   --clr-dark-hsl: 230 35% 7%;
   --clr-accent-hsl: 231 77% 90%;
   --clr-white-hsl: 0 100% 100%;
@@ -337,15 +348,13 @@ body {
   line-height: 1.1;
 }
 
-.numbered-title,
-.numbered-title-nav {
+.numbered-title {
   font-family: var(--ff-sans-cond);
   font-size: var(--fs-500);
   letter-spacing: 4.72px;
   text-transform: uppercase;
 }
-.numbered-title span,
-.numbered-title-nav span {
+.numbered-title span {
   color: hsl(var(--clr-white-hsl)/0.25);
   margin-right: 0.85em;
   font-weight: var(--fw-bold);
