@@ -30,21 +30,6 @@
    }
 }
 
-.unstyled-button {
-  border: none;
-  background: none;
-  padding: 0;
-}
-
-.tab-button,
-.dot-button,
-.number-button {
-  border: none;
-  padding: 0;
-  background: none;
-  cursor: pointer;
-}
-
 .tab-button [aria-selected=true]{
     color: var(--clr-white);
 }
@@ -53,7 +38,7 @@
   --dot-size: 0.5rem;
   padding: var(--dot-size);
   border-radius: 50%;
-  //Use box shadow as it does not trigger any layout paints and is more performant
+  //Animate box-shadow as it does not trigger any layout paints and is more performant
   //than animating the background color
   box-shadow: inset 0px 0px 0px var(--dot-size) hsl(var(--clr-white-hsl) / .17);
   will-change: box-shadow;

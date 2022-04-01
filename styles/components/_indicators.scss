@@ -1,4 +1,5 @@
-.underline-indicators > * {
+.underline-indicators > *,
+.underline-indicator {
   cursor: pointer;
   position: relative;
   padding-block: var(--underline-gap, 1rem);
