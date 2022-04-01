@@ -1,0 +1,37 @@
+.underline-indicators > * {
+  cursor: pointer;
+  position: relative;
+  padding-block: var(--underline-gap, 1rem);
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    opacity: 0;
+    transform: scaleX(0);
+    background-color: hsl(var(--clr-white-hsl) / .52);
+    --anim-duration: var(--duration-slow);
+    transition: opacity var(--anim-duration) linear, transform var(--anim-duration) ease-out;
+  }
+
+  &:hover::before,
+  &:focus:before {
+    opacity: 1;
+    transform: scaleX(1);
+    --anim-duration: var(--duration-fast);
+  }
+
+  &[aria-selected=true]::before,
+  &.active::before {
+    opacity: 1;
+    transform: scaleX(1);
+    box-shadow: 0px 0px 1em var(--clr-accent);
+    background-color: hsl(var(--clr-white-hsl) / 1);
+  }
+}
+
+
+
+
+

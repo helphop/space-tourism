@@ -1,0 +1,27 @@
+.primary-navigation {
+  --gap: 8.5625rem;
+  --underline-gap: 2rem;
+  background: hsl(var(--clr-white-hsl) / .04);
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-300);
+  list-style: none;
+  a {
+    text-decoration: none;
+    span {
+        font-weight: var(--fw-bold);
+        margin-right: .5em; //reLative to the font size of this element so scales proportionately
+      }
+  }
+}
+
+.tab-buttons  {
+  --gap: 3rem;
+}
+
+.dot-buttons {
+  --gap: 2rem;
+}
+
+.number-buttons {
+  --gap: 3rem;
+}

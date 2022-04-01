@@ -1,0 +1,99 @@
+.btn-large {
+   --btn-size: 8.5625em; //scales with font size 32px * 8.5625 = 274px
+   isolation: isolate;
+   position: relative;
+   display: grid;
+    place-content: center;
+   letter-spacing: 2px;
+   width: var(--btn-size);
+   height: var(--btn-size);
+   border-radius: 50%;
+   text-decoration: none;
+   //use a pseudo element so can transition the opacity
+   //more performant type of animation
+   &::before {
+     content: '';
+     opacity: 0;
+     position: absolute;
+     inset: 0;
+     background: hsl(var(--clr-white-hsl) / .13);
+     border-radius: inherit;
+     --anim-duration: var(--duration-slow);
+     transition: opacity var(--anim-duration) linear, transform calc(1.5 * var(--anim-duration)) ease-out;
+     z-index: -1;
+   }
+   &:hover::before,
+   &:focus::before {
+     opacity: 1;
+     transform: scale(1.64); //450px(size of outer circle) / 274px(size of inner circle) = 1.64
+     --anim-duration: var(--duration-fast);
+   }
+}
+
+.unstyled-button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.tab-button,
+.dot-button,
+.number-button {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.tab-button [aria-selected=true]{
+    color: var(--clr-white);
+}
+
+.dot-button {
+  --dot-size: 0.5rem;
+  padding: var(--dot-size);
+  border-radius: 50%;
+  //Use box shadow as it does not trigger any layout paints and is more performant
+  //than animating the background color
+  box-shadow: inset 0px 0px 0px var(--dot-size) hsl(var(--clr-white-hsl) / .17);
+  will-change: box-shadow;
+  transition: box-shadow var(--anim-duration, var(--duration-med)) ease-out;
+
+  &:hover {
+  box-shadow: inset 0px 0px 0px var(--dot-size) hsl(var(--clr-white-hsl) / .25);
+  --anim-duration: var(--duration-fast);
+  }
+}
+
+.dot-button[aria-selected = true]  {
+  background-color: var(--clr-white);
+}
+
+
+.number-button {
+  position: relative;
+  --button-size: 2.5em;
+  font-family: var(--ff-serif);
+  font-size: var(--fs-600);
+  color: var(--clr-white);
+  border-radius: 50%;
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: var(--clr-dark);
+   //animate box-shadow as more performant and does not require pseudo elements
+   box-shadow: 0px 0px 0px 1px hsl(var(--clr-white-hsl) / .25);
+   will-change: box-shadow;
+   transition: box-shadow var(--duration-med) ease-out;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 0px 0px 1px var(--clr-white);
+  }
+
+  &[aria-selected = true] {
+    color: var(--clr-dark);
+    background-color: var(--clr-white);
+    box-shadow: 0px 0px 0px 1px hsl(var(--clr-white-hsl));
+  }
+
+}
