@@ -4,7 +4,7 @@
    position: relative;
    display: grid;
     place-content: center;
-   letter-spacing: 2px;
+   letter-spacing: var(--letter-spacing-xs);
    width: var(--btn-size);
    height: var(--btn-size);
    border-radius: 50%;

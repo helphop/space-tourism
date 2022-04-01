@@ -68,21 +68,50 @@
   --ff-sans-cond: "Barlow Condensed", var(--font-sans);
   --ff-sans-normal: "Barlow", var(--font-sans);
 
-  --fs-900: 9.375rem; //150px
-  --fs-800: 6.25rem; //100px
-  --fs-700: 3.5rem; //56px
-  --fs-600: 2rem; //32px
-  --fs-500: 1.75rem; //28px
-  --fs-400: 1.125rem; //18px
-  --fs-300: 1rem; //16px
+  --fs-900: clamp(5rem, 8.5vw + 1rem, 9.375rem); //80px
+  --fs-800: 3.55rem; //56px
+  --fs-700: 1.5rem; //24px
+  --fs-600: 1.25rem; //20px
+  --fs-500: 1rem; //16px
+  --fs-400: 0.9375rem; //15px
+  --fs-300: 0.875rem; //14px
   --fs-200: 0.875rem; //14px
+
+  --letter-spacing-large: 2.7px;
+  --letter-spacing-med: 2.7px;
+  --letter-spacing-sm: 2.35px;
+  --letter-spacing-xs: 1.25px;
+
+  @include for-tablet-up {
+    // --fs-900: 9.375rem; //150px
+    --fs-800: 5rem; //80px
+    --fs-700: 2.5rem; //40px
+    --fs-600: 1.5rem; //24px
+    --fs-500: 1.25rem; //20px
+    --fs-400: 1rem; //16px
+    --fs-300: 1rem; //16px
+
+    --letter-spacing-large: 3.38px;
+    --letter-spacing-med: 2.36px;
+    --letter-spacing-sm: 2.35px;
+    --letter-spacing-xs: 2px;
+  }
+
+  @include for-desktop-up {
+    // --fs-800: 6.25rem; //100px
+    --fs-700: 3.5rem; //56px
+    --fs-600: 2rem; //32px
+    --fs-500: 1.75rem; //28px
+    --fs-400: 1.125rem; //18px
+
+    --letter-spacing-large: 4.75px;
+    --letter-spacing-med: 2.7px;
+    --letter-spacing-sm: 2.35px;
+
+  }
 
   --fw-normal: 400;
   --fw-bold: 700;
-
-  --letter-spacing-large: 4.75px;
-  --letter-spacing-med: 2.7px;
-  --letter-spacing-sm: 2.35px;
 
 }
 
