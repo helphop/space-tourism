@@ -14,14 +14,17 @@
   }
 }
 
+//container for a group of tab-button elements
 .tab-buttons  {
   --gap: 3rem;
 }
 
+//container for a group of dot-button elements
 .dot-buttons {
   --gap: 2rem;
 }
 
+//container for a group of number-button elements
 .number-buttons {
   --gap: 3rem;
 }
