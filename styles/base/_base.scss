@@ -16,12 +16,8 @@ body {
   line-height: 1.5;
   display: grid;
   grid-template-rows: min-content 1fr;
+  background: var(--bg-image) 0 / cover fixed;
 }
 
-// We must have a main element and to get it to stretch the full height of
-// the parents content area we must use gridav
-main {
-  display: grid;
-}
 
 

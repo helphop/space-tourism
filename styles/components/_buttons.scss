@@ -1,8 +1,8 @@
 .btn-large {
-   --btn-size: 8.5625em; //scales with font size 32px * 8.5625 = 274px
+   --btn-size: 7.5em; //scales with font size 20px * 8.5625 = 150px
    isolation: isolate;
    position: relative;
-   display: grid;
+   display: inline-grid;
     place-content: center;
    letter-spacing: var(--letter-spacing-xs);
    width: var(--btn-size);
@@ -27,6 +27,12 @@
      opacity: 1;
      transform: scale(1.64); //450px(size of outer circle) / 274px(size of inner circle) = 1.64
      --anim-duration: var(--duration-fast);
+   }
+   @include for-tablet-up {
+       --btn-size: 7.5625em; //scales with font size 32px * 7.5625 = 242px
+   }
+   @include for-desktop-up {
+       --btn-size: 8.5625em; //scales with font size 32px * 8.5625 = 272px
    }
 }
 

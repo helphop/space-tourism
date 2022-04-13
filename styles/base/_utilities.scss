@@ -2,7 +2,6 @@
 // Utility Classes
 // ------------------
 
-
 .flex {
   display: flex;
   gap: var(--gap, 1rem);
@@ -14,7 +13,11 @@
 }
 
 .d-block {
-    display: block;
+  display: block;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 // * + * targets the element that has a sibling before it
@@ -29,33 +32,27 @@
 }
 
 .grid-container {
-  border: 3px solid pink;
-  //calculate the max width using media query values. Apply later.
-  --max-width: calc(var(--desktop-max) / 2);
+  text-align: center;
   display: grid;
+   place-items: center;
+  padding-inline: 1.5rem;
 
-    @include for-desktop-up {
-        grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
-        column-gap: var(--container-gap, 2rem);
+  > * {
+    max-width: 46ch;
+  }
 
-        > :first-child {
-        grid-column: 2;
-        }
-        > :last-child {
-        grid-column: 3;
-        }
-    }
+  @include for-desktop-up {
+      grid-template-columns: minmax(0.5rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(0.5rem, 1fr);
+      column-gap: var(--container-gap, 2rem);
+
+      > :first-child {
+          grid-column: 2;
+      }
+      > :last-child {
+          grid-column: 3;
+      }
+  }
 }
-
-
-.flex-container {
-    border: 3px solid pink;
-    flex-direction: column;
-
-
-}
-
-
 
 // Need to see if the codyhouse one is easier to use
 .container-ch {

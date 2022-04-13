@@ -12,13 +12,6 @@
 }
 
 /* Avoid text overflow */
-p, h1, h2, h3, h4, h5, h6 {
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
-  /* optional */
-}
-
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role=list],
 ol[role=list] {
@@ -172,7 +165,7 @@ button {
   :root {
     --fs-800: 5rem;
     --fs-700: 2.5rem;
-    --fs-600: 1.5rem;
+    --fs-600: 2rem;
     --fs-500: 1.25rem;
     --fs-400: 1rem;
     --fs-300: 1rem;
@@ -185,7 +178,6 @@ button {
 @media (min-width: 56.25em) {
   :root {
     --fs-700: 3.5rem;
-    --fs-600: 2rem;
     --fs-500: 1.75rem;
     --fs-400: 1.125rem;
     --letter-spacing-large: 4.75px;
@@ -217,10 +209,7 @@ body {
   display: grid;
   grid-template-rows: -webkit-min-content 1fr;
   grid-template-rows: min-content 1fr;
-}
-
-main {
-  display: grid;
+  background: var(--bg-image) 0/cover fixed;
 }
 
 :root {
@@ -245,6 +234,10 @@ main {
   display: block;
 }
 
+.width-100 {
+  width: 100%;
+}
+
 .flow > * + * {
   margin-top: var(--flow-space, 1em);
 }
@@ -256,13 +249,17 @@ main {
 }
 
 .grid-container {
-  border: 3px solid pink;
-  --max-width: calc(var(--desktop-max) / 2);
+  text-align: center;
   display: grid;
+  place-items: center;
+  padding-inline: 1.5rem;
+}
+.grid-container > * {
+  max-width: 46ch;
 }
 @media (min-width: 56.25em) {
   .grid-container {
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
+    grid-template-columns: minmax(0.5rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(0.5rem, 1fr);
     -webkit-column-gap: var(--container-gap, 2rem);
        -moz-column-gap: var(--container-gap, 2rem);
             column-gap: var(--container-gap, 2rem);
@@ -273,14 +270,6 @@ main {
   .grid-container > :last-child {
     grid-column: 3;
   }
-}
-
-.flex-container {
-  border: 3px solid pink;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .container-ch {
@@ -418,6 +407,10 @@ main {
   line-height: 1.1;
 }
 
+main {
+  display: grid;
+}
+
 .numbered-title {
   font-family: var(--ff-sans-cond);
   font-size: var(--fs-500);
@@ -431,10 +424,10 @@ main {
 }
 
 .btn-large {
-  --btn-size: 8.5625em;
+  --btn-size: 7.5em;
   isolation: isolate;
   position: relative;
-  display: grid;
+  display: inline-grid;
   place-content: center;
   letter-spacing: var(--letter-spacing-xs);
   width: var(--btn-size);
@@ -463,6 +456,16 @@ main {
       -ms-transform: scale(1.64);
           transform: scale(1.64);
   --anim-duration: var(--duration-fast);
+}
+@media (min-width: 37.5em) {
+  .btn-large {
+    --btn-size: 7.5625em;
+  }
+}
+@media (min-width: 56.25em) {
+  .btn-large {
+    --btn-size: 8.5625em;
+  }
 }
 
 .tab-button [aria-selected=true] {
@@ -522,9 +525,32 @@ main {
           box-shadow: 0px 0px 0px 1px hsl(var(--clr-white-hsl));
 }
 
+[aria-label="primary navigation"] {
+  z-index: 100;
+}
+[aria-label="primary navigation"] .menu-trigger {
+  position: absolute;
+  top: 34px;
+  right: 26px;
+  z-index: 200;
+  background: none;
+}
+
 .primary-navigation {
-  --gap: 8.5625rem;
-  --underline-gap: 2rem;
+  position: fixed;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60vw;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
   background: hsl(var(--clr-white-hsl)/0.04);
   font-family: var(--ff-sans-cond);
   font-size: var(--fs-300);
@@ -596,13 +622,26 @@ main {
   background-color: hsl(var(--clr-white-hsl)/1);
 }
 
-.container-ch.flex {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.home.home {
+  --bg-image: url(../../assets/home/background-home-mobile.jpg);
 }
-
-.box {
-  background: lightblue;
-  padding: 3rem;
+@media (min-width: 37.5em) {
+  .home.home {
+    --bg-image: url(../../assets/home/background-home-tablet.jpg);
+  }
+}
+@media (min-width: 56.25em) {
+  .home.home {
+    --bg-image: url(../../assets/home/background-home-desktop.jpg);
+  }
+}
+@media (min-width: 56.25em) {
+  .home .grid-container {
+    padding-bottom: max(5rem, 20vh);
+    place-content: end;
+    text-align: left;
+  }
+  .home .grid-container > :last-child {
+    text-align: right;
+  }
 }

@@ -1,6 +1,26 @@
+[aria-label="primary navigation"] {
+  z-index: 100;
+
+  .menu-trigger {
+    position: absolute;
+    top: 34px;
+    right: 26px;
+    z-index: 200;
+    background: none;
+
+  }
+}
 .primary-navigation {
-  --gap: 8.5625rem;
-  --underline-gap: 2rem;
+  // --gap: 8.5625rem;
+  // --underline-gap: 2rem;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60vw;
+  flex-direction: column;
+     backdrop-filter: blur(40px);
   background: hsl(var(--clr-white-hsl) / .04);
   font-family: var(--ff-sans-cond);
   font-size: var(--fs-300);
@@ -12,6 +32,8 @@
         margin-right: .5em; //reLative to the font size of this element so scales proportionately
       }
   }
+
+
 }
 
 //container for a group of tab-button elements
