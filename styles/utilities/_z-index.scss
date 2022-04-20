@@ -1,0 +1,32 @@
+:root {
+  --layer-1: 1;
+  --layer-2: 2;
+  --layer-3: 3;
+  --layer-4: 4;
+  --layer-5: 5;
+  --layer-important:2147483647;
+}
+
+.layer-1 {
+  z-index: var(--layer-1);
+}
+
+.layer-2 {
+  z-index: var(--layer-2);
+}
+
+.layer-3 {
+  z-index: var(--layer-3);
+}
+
+.layer-4 {
+  z-index: var(--layer-4);
+}
+
+.layer-5 {
+  z-index: var(--layer-5);
+}
+
+.layer-important {
+  z-index: var(--layer-important);
+}

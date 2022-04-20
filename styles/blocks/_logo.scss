@@ -1,0 +1,13 @@
+  .logo {
+    --logo-size: 40px;
+    min-width: var(--logo-size);
+    min-height: var(--logo-size);
+    margin: 24px clamp(1.5rem, 5vw, 3.5rem);
+  }
+
+  @include for-tablet-up {
+    .logo {
+      --logo-size: 48px;
+    }
+
+  }

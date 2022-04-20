@@ -1,0 +1,25 @@
+.grid-container {
+  text-align: center;
+  display: grid;
+   place-items: center;
+  padding-inline: 1.5rem;
+
+  > * {
+    max-width: 46ch;
+  }
+
+  @include for-desktop-up {
+      grid-template-columns: minmax(0.5rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(0.5rem, 1fr);
+      column-gap: var(--container-gap, 2rem);
+
+      > :first-child {
+          grid-column: 2;
+      }
+      > :last-child {
+          grid-column: 3;
+      }
+      text-align: left;
+      padding-bottom: max(5rem, 20vh);
+  }
+
+}

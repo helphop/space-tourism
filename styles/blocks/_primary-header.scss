@@ -1,0 +1,8 @@
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
+
+  @include for-desktop-up {
+    margin-top: 2.5rem;
+  }
+}

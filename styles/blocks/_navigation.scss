@@ -1,0 +1,105 @@
+[aria-label="primary navigation"] {
+  z-index: var(--layer-4);
+  // Don't show the menu trigger icons on other screens
+  .menu-trigger  {
+    display: none;
+  }
+
+  .primary-navigation-list {
+    //controls the padding above and below the nav list items
+    --underline-gap: 2.25rem;
+    //controls the spacing between the list items
+    --gap: 8.5625rem;
+    font-size: var(--fs-300);
+    font-family: var(--ff-sans-cond);
+    list-style: none;
+    background: hsl(var(--clr-dark-hsl) / 0.95);
+    @supports (backdrop-filter: blur(40px)) {
+      backdrop-filter: blur(40px);
+     background: hsl(var(--clr-white-hsl) / .04);
+    }
+
+    a {
+      text-decoration: none;
+      span {
+          font-weight: var(--fw-bold);
+          margin-right: .5em;
+      }
+    }
+
+  }
+
+  @include for-phone-only {
+    .menu-trigger {
+      display: block;
+      position: absolute;
+      top: 2rem;
+      right: 1.5rem;
+      z-index: var(--layer-5);
+      background: transparent;
+      background-image: url(../../assets/shared/icon-hamburger.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      --bg-size: 1.5rem;
+      width: var(--bg-size);
+      height: var(--bg-size);
+      &:focus-visible {
+        outline: 2px solid var(--clr-accent);
+        outline-offset: 5px;
+      }
+    }
+
+    .menu-trigger[aria-expanded="true"] {
+        background-image: url(../../assets/shared/icon-close.svg);
+
+      ~ .primary-navigation-list {
+        transform: translateX(0);
+      }
+    }
+
+    // primary navigation  list styles
+    .primary-navigation-list {
+      font-size: var(--fs-500);
+      position: fixed;
+      inset: 0 0 0 30%;
+      padding-block: min(20rem, 18vh);
+      flex-direction: column;
+      transform: translateX(100%);
+      //we use 0s for visibility duration but delay it until other animations run first
+      transition: transform 200ms ease-out,
+                  visibility 0s 200ms;
+      //controls the spacing between the list items
+      --gap: 1rem;
+   }
+   .primary-navigation-list.underline-indicators > * {
+       //controls the padding on top and bottom of element
+       //which changes the height of the active indicator
+        --underline-gap: 0.3rem;
+        &::before {
+        height: 100%;
+        width: 4px;
+        right: 0;
+      }
+    }
+  }
+
+  @include for-tablet-only {
+    .primary-navigation-list {
+      padding-inline: 3rem;
+      --gap: 3rem;
+    }
+    .primary-navigation-list span {
+      display: none;
+    }
+  }
+
+  @include for-desktop-up {
+    .primary-navigation-list {
+      padding-inline: 7.75rem 10.3rem;
+      --gap: 4.5rem;
+    }
+  }
+
+}
+
+

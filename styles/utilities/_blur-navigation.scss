@@ -1,0 +1,96 @@
+//fallback for browsers that do not support backdrop-filter
+@supports not (backdrop-filter: blur(12px)) {
+  /*only blur the content inside the .wrapper element
+    so can use an after pseudo element to add lighter background
+    and make it look more like the frosted glass in the design
+  */
+
+  nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    inset: 0 0 0 30%;
+    overflow: hidden;
+    pointer-events: none;
+    > * {
+      pointer-events: auto;
+    }
+  }
+
+  .menu-trigger[aria-expanded="true"] {
+    ~ .blurred-content {
+      transform: translateX(0);
+    }
+  }
+
+  .menu-trigger[aria-expanded="false"] {
+    ~ .blurred-content {
+      transform: translateX(100%);
+    }
+  }
+  //this element is injected using Javascript when does not support backdrop-filter
+  .blurred-content {
+    filter: blur(16px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: scale(1.18);
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      background: hsl(var(--white-hsl) / 0.15);
+
+      // gradient created with https://larsenwork.com/easing-gradients/#editor
+      background-image: linear-gradient(
+          -45deg,
+          hsla(230, 34.78%, 7%, 0) 0%,
+          hsla(230, 34.78%, 7%, 0.009) 8.1%,
+          hsla(230, 34.78%, 7%, 0.033) 15.5%,
+          hsla(230, 34.78%, 7%, 0.071) 22.5%,
+          hsla(230, 34.78%, 7%, 0.119) 29%,
+          hsla(230, 34.78%, 7%, 0.176) 35.3%,
+          hsla(230, 34.78%, 7%, 0.239) 41.2%,
+          hsla(230, 34.78%, 7%, 0.306) 47.1%,
+          hsla(230, 34.78%, 7%, 0.374) 52.9%,
+          hsla(230, 34.78%, 7%, 0.441) 58.8%,
+          hsla(230, 34.78%, 7%, 0.504) 64.7%,
+          hsla(230, 34.78%, 7%, 0.561) 71%,
+          hsla(230, 34.78%, 7%, 0.609) 77.5%,
+          hsla(230, 34.78%, 7%, 0.7) 84.5%,
+          hsla(230, 34.78%, 7%, 0.9) 91.9%,
+          hsla(230, 34.78%, 7%, 1) 100%
+        );
+      }
+  }
+
+  @include for-tablet-only {
+    .primary-navigation-list{
+      //imitate the blur look with a background color
+      background: hsl(223 25% 11% / 1);
+    }
+    //hide the blurred content as does
+    //not look imitate as accurately at this size
+    .blurred-content {
+      display: none;
+    }
+  }
+}
+
+//container for a group of tab-button elements
+.tab-buttons  {
+  --gap: 3rem;
+}
+
+//container for a group of dot-button elements
+.dot-buttons {
+  --gap: 2rem;
+}
+
+//container for a group of number-button elements
+.number-buttons {
+  --gap: 3rem;
+}
