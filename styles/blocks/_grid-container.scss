@@ -17,7 +17,7 @@
     padding-bottom: max(5rem, 20vh);
   }
 
-  &--home {
+  &[data-style='home'] {
     @include for-desktop-up {
       align-items: end;
 
@@ -35,7 +35,7 @@
     }
   }
 
-  &--destination {
+  &[data-style='destination'] {
     --flow-space: 2rem;
 
     grid-template-areas:
@@ -52,9 +52,9 @@
     .planet-image {
       grid-area: image;
       img {
-      display: inline-block;
-      height: auto;
-      max-width: 40vw;
+        display: inline-block;
+        height: auto;
+        max-width: 40vw;
       }
     }
 

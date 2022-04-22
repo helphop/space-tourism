@@ -780,44 +780,44 @@ body {
   }
 }
 @media (min-width: 56.25em) {
-  .grid-container--home {
+  .grid-container[data-style=home] {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end;
   }
-  .grid-container--home > :first-child {
+  .grid-container[data-style=home] > :first-child {
     grid-column: 2;
   }
-  .grid-container--home > :last-child {
+  .grid-container[data-style=home] > :last-child {
     grid-column: 3;
   }
-  .grid-container--home > :last-child {
+  .grid-container[data-style=home] > :last-child {
     justify-self: end;
   }
 }
-.grid-container--destination {
+.grid-container[data-style=destination] {
   --flow-space: 2rem;
   grid-template-areas: "title" "image" "tabs" "content";
 }
-.grid-container--destination .numbered-title {
+.grid-container[data-style=destination] .numbered-title {
   align-self: start;
   grid-area: title;
 }
-.grid-container--destination .planet-image {
+.grid-container[data-style=destination] .planet-image {
   grid-area: image;
 }
-.grid-container--destination .planet-image img {
+.grid-container[data-style=destination] .planet-image img {
   display: inline-block;
   height: auto;
   max-width: 40vw;
 }
-.grid-container--destination .tab-buttons {
+.grid-container[data-style=destination] .tab-buttons {
   grid-area: tabs;
 }
-.grid-container--destination .destination-info {
+.grid-container[data-style=destination] .destination-info {
   grid-area: content;
 }
-.grid-container--destination .destination-meta {
+.grid-container[data-style=destination] .destination-meta {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -827,16 +827,16 @@ body {
   margin-top: 2.5rem;
 }
 @media (min-width: 37.5em) and (max-width: 56.1875em) {
-  .grid-container--destination .destination-info {
+  .grid-container[data-style=destination] .destination-info {
     max-width: 65ch;
   }
 }
 @media (min-width: 37.5em) {
-  .grid-container--destination .numbered-title {
+  .grid-container[data-style=destination] .numbered-title {
     justify-self: start;
     margin-top: max(2rem, 5vw);
   }
-  .grid-container--destination .destination-meta {
+  .grid-container[data-style=destination] .destination-meta {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -847,17 +847,17 @@ body {
   }
 }
 @media (min-width: 56.25em) {
-  .grid-container--destination {
+  .grid-container[data-style=destination] {
     justify-items: start;
     -webkit-column-gap: 5rem;
        -moz-column-gap: 5rem;
             column-gap: 5rem;
     grid-template-areas: ". title title ." ". image tabs ." ". image content .";
   }
-  .grid-container--destination .planet-image {
+  .grid-container[data-style=destination] .planet-image {
     justify-self: center;
   }
-  .grid-container--destination .destination-meta {
+  .grid-container[data-style=destination] .destination-meta {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
