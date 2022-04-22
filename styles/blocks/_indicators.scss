@@ -5,7 +5,8 @@
 .underline-indicator {
   cursor: pointer;
   position: relative;
-  padding-block: var(--underline-gap, 1rem);
+  padding-block: var(--underline-gap, 0.6rem);
+  background-color: transparent;;
   &::before {
     content: '';
     position: absolute;

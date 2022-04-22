@@ -35,7 +35,7 @@
     }
   }
 
-  &[data-style='destination'] {
+  &--destination {
     --flow-space: 2rem;
 
     grid-template-areas:
@@ -51,8 +51,9 @@
 
     .planet-image {
       grid-area: image;
+      display: grid;
+      place-content: center;
       img {
-        display: inline-block;
         height: auto;
         max-width: 40vw;
       }
@@ -113,5 +114,62 @@
         --gap: min(8vw, 6rem);
       }
     }
+  }
+
+  &--crew {
+    --flow-space: 2rem;
+    grid-template-areas:
+      'title'
+      'image'
+      'tabs'
+      'content';
+
+      .numbered-title {
+        grid-area: title;
+      }
+
+      .crew-image {
+        grid-area: image;
+        display: grid;
+        place-content: center;
+        border-bottom: 1px solid var(--clr-grey-blue);
+        img {
+          height: auto;
+          max-width: 50vw;
+        }
+      }
+
+      .dot-buttons {
+        grid-area: tabs;
+      }
+
+      .crew-meta {
+        grid-area: content;
+      }
+
+      @include for-tablet-up {
+        grid-template-areas:
+            'title'
+            'content'
+            'tabs'
+            'image';
+
+        .numbered-title {
+          margin-top: max(2rem, 5vw);
+          justify-self: start;
+        }
+
+        .crew-image {
+          align-self: end;
+        }
+      }
+
+      @include for-desktop-up {
+        grid-template-areas:
+            '. title image .'
+            '. content image .'
+            '. tabs image .';
+        justify-items: start;
+      }
   }
 }

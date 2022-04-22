@@ -42,11 +42,12 @@
 }
 
 .dot-button {
-  --dot-size: 0.5rem;
+  --dot-size: clamp(0.35rem, 0.8vw, 0.8rem);
   padding: var(--dot-size);
   border-radius: 50%;
   //Animate box-shadow as it does not trigger any layout paints and is more performant
   //than animating the background color
+  background: transparent;
   box-shadow: inset 0px 0px 0px var(--dot-size) hsl(var(--clr-white-hsl) / .17);
   will-change: box-shadow;
   transition: box-shadow var(--anim-duration, var(--duration-med)) ease-out;

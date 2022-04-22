@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  <script src="javascript/navigation.js" defer></script>
-  <script src="javascript/destination.js" defer></script>
-  <title>Frontend Mentor | Space tourism website</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <script src="javascript/navigation.js" defer></script>
+    <script src="javascript/destination.js" defer></script>
+    <title>Frontend Mentor | Space tourism website</title>
+  </head>
 
   <body class="destination">
     <a href="#main-content" class="skip-to-content bg-white text-dark">Skip to main content</a>
@@ -37,20 +37,19 @@
       </nav>
     </header>
     <!-- every page must have a main element -->
-    <main id="main-content" class="grid-container | flow" data-style="destination">
+    <main id="main-content" class="grid-container grid-container--destination | flow">
       <h1 class="numbered-title ff-sans-cond fs-500 uppercase text-white letter-spacing-1"><span aria-hidden="true">01</span> Pick your destination</h1>
       <picture class="planet-image">
         <source srcset="assets/destination/image-moon.webp" type="image/webp">
-        <source srcset="assets/destination/image-moon.png" type="image/png">
         <img src="assets/destination/image-moon.png" alt="Moon in Space" width="445px" height="445px">
       </picture>
       <div class="tab-buttons | underline-indicators flex">
-        <button aria-selected="true" class="tab-button | bg-transparent uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Moon</button>
-        <button aria-selected="false" class="tab-button | bg-transparent uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Mars</button>
-        <button aria-selected="false" class="tab-button | bg-transparent uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Europa</button>
-        <button aria-selected="false" class="tab-button | bg-transparent uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Titan</button>
+        <button aria-selected="true" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Moon</button>
+        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Mars</button>
+        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Europa</button>
+        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Titan</button>
       </div>
-      <article class="destination-info flow-small">
+      <article class="destination-info flow">
         <h2 class="fs-800 ff-serif uppercase">Moon</h2>
         <p class="text-accent">See our planet as you’ve never seen it before. A perfect relaxing trip away to help
         regain perspective and come back refreshed. While you’re there, take in some history
