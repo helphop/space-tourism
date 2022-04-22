@@ -6,7 +6,7 @@
   padding-bottom: 3rem;
 
   > * {
-    max-width: 46ch;
+    max-width: 50ch;
   }
 
 
@@ -60,10 +60,12 @@
 
     .tab-buttons {
       grid-area: tabs;
+      --gap: min(3vw, 2rem);
     }
 
     .destination-info {
       grid-area: content;
+
     }
 
     .destination-meta {
@@ -71,7 +73,9 @@
       border-top: 1px solid var(--clr-grey-blue);
       padding-top: 2.5rem;
       margin-top: 2.5rem;
-
+      p {
+        font-size: var(--fs-750);
+      }
     }
 
     @include for-tablet-only {
@@ -85,6 +89,7 @@
         justify-self: start;
         margin-top: max(2rem, 5vw);
       }
+
       .destination-meta {
         flex-direction: row;
         justify-content: space-evenly;
@@ -93,7 +98,7 @@
 
     @include for-desktop-up {
       justify-items: start;
-      column-gap: 5rem;
+      align-content: start;
       grid-template-areas:
           '. title title .'
           '. image tabs .'
@@ -105,7 +110,7 @@
 
       .destination-meta {
         justify-content: start;
-        gap: 5rem;
+        --gap: min(8vw, 6rem);
       }
     }
   }

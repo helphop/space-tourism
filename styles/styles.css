@@ -166,6 +166,7 @@ button {
 }
 @media (min-width: 37.5em) {
   :root {
+    --fs-900: 9.375rem;
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 2rem;
@@ -180,6 +181,7 @@ button {
 }
 @media (min-width: 56.25em) {
   :root {
+    --fs-800: 6.25rem;
     --fs-700: 3.5rem;
     --fs-500: 1.75rem;
     --fs-400: 1.125rem;
@@ -767,7 +769,7 @@ body {
   padding-bottom: 3rem;
 }
 .grid-container > * {
-  max-width: 46ch;
+  max-width: 50ch;
 }
 @media (min-width: 56.25em) {
   .grid-container {
@@ -813,6 +815,7 @@ body {
 }
 .grid-container[data-style=destination] .tab-buttons {
   grid-area: tabs;
+  --gap: min(3vw, 2rem);
 }
 .grid-container[data-style=destination] .destination-info {
   grid-area: content;
@@ -825,6 +828,9 @@ body {
   border-top: 1px solid var(--clr-grey-blue);
   padding-top: 2.5rem;
   margin-top: 2.5rem;
+}
+.grid-container[data-style=destination] .destination-meta p {
+  font-size: var(--fs-750);
 }
 @media (min-width: 37.5em) and (max-width: 56.1875em) {
   .grid-container[data-style=destination] .destination-info {
@@ -849,9 +855,8 @@ body {
 @media (min-width: 56.25em) {
   .grid-container[data-style=destination] {
     justify-items: start;
-    -webkit-column-gap: 5rem;
-       -moz-column-gap: 5rem;
-            column-gap: 5rem;
+    -ms-flex-line-pack: start;
+        align-content: start;
     grid-template-areas: ". title title ." ". image tabs ." ". image content .";
   }
   .grid-container[data-style=destination] .planet-image {
@@ -861,7 +866,7 @@ body {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
-    gap: 5rem;
+    --gap: min(8vw, 6rem);
   }
 }
 
