@@ -14,6 +14,7 @@
     font-family: var(--ff-sans-cond);
     list-style: none;
     background: hsl(var(--clr-dark-hsl) / 0.95);
+
     @supports (backdrop-filter: blur(40px)) {
       backdrop-filter: blur(40px);
      background: hsl(var(--clr-white-hsl) / .04);
@@ -83,22 +84,19 @@
     }
   }
 
-  @include for-tablet-only {
+  @include for-tablet-up {
     .primary-navigation-list {
-      padding-inline: 3rem;
-      --gap: 3rem;
+      padding-inline: clamp(3rem, 7vw, 7.75rem);
+      --gap: clamp(3rem, 5vw, 4.5rem);
     }
+  }
+
+  @include for-tablet-only {
     .primary-navigation-list span {
       display: none;
     }
   }
 
-  @include for-desktop-up {
-    .primary-navigation-list {
-      padding-inline: 7.75rem 10.3rem;
-      --gap: 4.5rem;
-    }
-  }
 
 }
 

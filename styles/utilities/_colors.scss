@@ -3,9 +3,11 @@
   --clr-dark-hsl: 230 35% 7%;
   --clr-accent-hsl: 231 77% 90%;
   --clr-white-hsl: 0 100% 100%;
+  --clr-grey-blue-hsl: 231 15% 26%;
 
   --clr-dark: hsl(var(--clr-dark-hsl) / 1);
   --clr-accent: hsl(var(--clr-accent-hsl) / 1);
   --clr-white: hsl(var(--clr-white-hsl) / 1);
+  --clr-grey-blue: hsl(var(--clr-grey-blue-hsl) / 1);
 
 }

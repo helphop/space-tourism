@@ -1,5 +1,12 @@
-//fallback for browsers that do not support backdrop-filter
-@supports not (backdrop-filter: blur(12px)) {
+// Not the best way as need to manipulate the nav element
+//but good that don't need an extra wrapper element
+//Must change the nav position to static so it works properly
+//on the larger screen sizes
+//does not work need to use another element inside the nav
+//like a menu-wrapper from my other file
+
+@include for-phone-only {
+  @supports not (backdrop-filter: blur(12px)) {
   /*only blur the content inside the .wrapper element
     so can use an after pseudo element to add lighter background
     and make it look more like the frosted glass in the design
@@ -67,18 +74,21 @@
       }
   }
 
-  @include for-tablet-only {
-    .primary-navigation-list{
-      //imitate the blur look with a background color
-      background: hsl(223 25% 11% / 1);
-    }
-    //hide the blurred content as does
-    //not look imitate as accurately at this size
-    .blurred-content {
-      display: none;
-    }
-  }
+  // @include for-tablet-only {
+  //   .primary-navigation-list{
+  //     //imitate the blur look with a background color
+  //     background: hsl(223 25% 11% / 1);
+  //   }
+  //   //hide the blurred content as does
+  //   //not look imitate as accurately at this size
+  //   .blurred-content {
+  //     display: none;
+  //   }
+  // }
 }
+
+}
+//fallback for browsers that do not support backdrop-filter
 
 //container for a group of tab-button elements
 .tab-buttons  {

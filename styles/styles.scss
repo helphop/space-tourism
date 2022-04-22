@@ -2,17 +2,23 @@
 @import 'utilities/breakpoints.scss';
 @import 'utilities/colors.scss';
 @import 'utilities/typography.scss';
-@import 'utilities/grid-container.scss';
 @import 'utilities/animations.scss';
 @import 'utilities/utilities.scss';
 @import 'utilities/z-index';
 @import 'utilities/focus-visible';
+@import 'utilities/grid-utilities';
+@import 'utilities/flow';
+@import 'utilities/splitter';
 @import 'blocks/body';
 @import 'blocks/primary-header';
-@import 'blocks/main';
 @import 'blocks/numbered-title';
 @import 'blocks/buttons';
-@import 'blocks/navigation';
+@import 'blocks/primary-navigation';
 @import 'blocks/indicators';
 @import 'blocks/logo';
-@import 'pages/index.scss';
+@import 'blocks/skip-to-content';
+@import 'blocks/grid-container.scss';
+@import 'blocks/home';
+@import 'blocks/destination';
+@import 'blocks/planet-image';
+

@@ -1,0 +1,111 @@
+.grid-container {
+  text-align: center;
+  display: grid;
+   place-items: center;
+  padding-inline: 1.5rem;
+  padding-bottom: 3rem;
+
+  > * {
+    max-width: 46ch;
+  }
+
+
+  @include for-desktop-up {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(0.5rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(0.5rem, 1fr);
+    padding-bottom: max(5rem, 20vh);
+  }
+
+  &--home {
+    @include for-desktop-up {
+      align-items: end;
+
+      > :first-child {
+        grid-column: 2;
+      }
+
+      > :last-child {
+        grid-column: 3;
+      }
+
+      > :last-child {
+      justify-self: end;
+      }
+    }
+  }
+
+  &--destination {
+    --flow-space: 2rem;
+
+    grid-template-areas:
+        'title'
+        'image'
+        'tabs'
+        'content';
+
+    .numbered-title {
+      align-self: start;
+      grid-area: title
+    }
+
+    .planet-image {
+      grid-area: image;
+      width: 100%;
+      height: auto;
+      max-width: 40%;
+
+    }
+
+    .tab-buttons {
+      grid-area: tabs;
+    }
+
+    .destination-info {
+      grid-area: content;
+    }
+
+    .destination-meta {
+      flex-direction: column;
+      border-top: 1px solid var(--clr-grey-blue);
+      padding-top: 2.5rem;
+      margin-top: 2.5rem;
+
+    }
+
+    @include for-tablet-only {
+      .destination-info {
+        max-width: 65ch;
+      }
+    }
+
+    @include for-tablet-up {
+      .numbered-title {
+        justify-self: start;
+        margin-top: max(2rem, 5vw);
+      }
+      .destination-meta {
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+    }
+
+    @include for-desktop-up {
+      justify-items: start;
+      column-gap: 5rem;
+      grid-template-areas:
+          '. title title .'
+          '. image tabs .'
+          '. image content .';
+
+      .planet-image {
+        justify-self: center;
+        max-width: 100%;
+      }
+      .destination-meta {
+        justify-content: start;
+        gap: 5rem;
+      }
+    }
+  }
+}

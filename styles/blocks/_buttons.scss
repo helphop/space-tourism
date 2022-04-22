@@ -1,3 +1,4 @@
+//The large white round button
 .btn-large {
    --btn-size: 7.5em; //scales with font size 20px * 8.5625 = 150px
    isolation: isolate;
@@ -36,7 +37,7 @@
    }
 }
 
-.tab-button [aria-selected=true]{
+.tab-button[aria-selected=true]{
     color: var(--clr-white);
 }
 

@@ -4,5 +4,19 @@
 
   @include for-desktop-up {
     margin-top: 2.5rem;
+    --gap: 0;
+    &::after {
+      content: '';
+      display: block;
+      margin-right: -2rem;
+      z-index: var(--layer-5);
+      height: 1px;
+      width: 100%;
+      background: hsl(var(--clr-white-hsl) / 0.5);
+      order: 0;
+    }
+    nav {
+      order: 1;
+    }
   }
 }

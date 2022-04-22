@@ -1,0 +1,12 @@
+.skip-to-content {
+  position: absolute;
+  padding: 1rem;
+  border-radius: 8px;
+  z-index: var(--layer-important);
+  transform: translateY(-100%);
+  transition: transform var(--duration-fast) ease-out;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+}

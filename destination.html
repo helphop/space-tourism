@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <script src="javascript/navigation.js" defer></script>
+  <script src="javascript/destination.js" defer></script>
+  <title>Frontend Mentor | Space tourism website</title>
+</head>
+
+  <body class="destination">
+    <a href="#main-content" class="skip-to-content bg-white text-dark">Skip to main content</a>
+    <header class="primary-header flex">
+      <div>
+        <!-- Must put the dimensions of images so the browser knows the aspect ratio-->
+        <img src="assets/shared/logo.svg" class="logo" alt="White Circle Logo" width="40px" height="40px">
+      </div>
+      <!-- For accessibility we should always put the toggle button inside the nav element -->
+      <nav role="navigation" aria-label="primary navigation">
+        <button id='menu-trigger' class="menu-trigger click-target-helper" aria-controls="primary-navigation"
+          aria-haspopup="true" aria-expanded="false" tabindex="0">
+          <span class="sr-only">Open Menu</span>
+        </button>
+        <ul id="primary-navigation-list" class="primary-navigation-list underline-indicators  | flex">
+          <li ><a class="uppercase text-white letter-spacing-2" href="index.html"><span
+                aria-hidden="true">00</span>Home</a> </li>
+          <li class="active"><a class=" uppercase text-white letter-spacing-2" href="destination.html"><span
+                aria-hidden="true">01</span>Destination</a></li>
+          <li><a class="uppercase text-white letter-spacing-2" href="crew.html"><span aria-hidden="true">02</span>Crew</a>
+          </li>
+          <li><a class="uppercase text-white letter-spacing-2" href="technology.html"><span
+                aria-hidden="true">03</span>Technology</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- every page must have a main element -->
+    <main id="main-content" class="grid-container grid-container--destination flow">
+      <h1 class="numbered-title ff-sans-cond fs-500 uppercase text-white letter-spacing-1"><span aria-hidden="true">01</span> Pick your destination</h1>
+      <img src="assets/destination/image-moon.png" class="planet-image" alt="The Moon" width="445px" height="445px">
+      <div class="tab-buttons | underline-indicators flex">
+        <button aria-selected="true" class="tab-button | bg-transparent uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Moon</button>
+        <button aria-selected="false" class="tab-button | bg-transparent uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Mars</button>
+        <button aria-selected="false" class="tab-button | bg-transparent uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Europa</button>
+        <button aria-selected="false" class="tab-button | bg-transparent uppercase text-accent ff-sans-cond letter-spacing-2 fs-300">Titan</button>
+      </div>
+      <article class="destination-info flow">
+        <h2 class="fs-800 ff-serif uppercase">Moon</h2>
+        <p text-accent">See our planet as you’ve never seen it before. A perfect relaxing trip away to help
+        regain perspective and come back refreshed. While you’re there, take in some history
+        by visiting the Luna 2 and Apollo 11 landing sites.</p>
+
+        <div class="destination-meta flex">
+          <div>
+            <h3 class="ff-sans-cond text-accent uppercase fs-200 letter-spacing-3">Avg. distance</h3>
+            <p class="ff-serif uppercase fs-750">384,400 km</p>
+          </div>
+          <div>
+            <h3 class="ff-sans-cond text-accent uppercase fs-200 letter-spacing-3">Est. travel time</h3>
+            <p class="ff-serif uppercase fs-750">3 days</p>
+          </div>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
