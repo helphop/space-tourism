@@ -51,10 +51,11 @@
 
     .planet-image {
       grid-area: image;
-      width: 100%;
+      img {
+      display: inline-block;
       height: auto;
-      max-width: 40%;
-
+      max-width: 40vw;
+      }
     }
 
     .tab-buttons {
@@ -100,8 +101,8 @@
 
       .planet-image {
         justify-self: center;
-        max-width: 100%;
       }
+
       .destination-meta {
         justify-content: start;
         gap: 5rem;

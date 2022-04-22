@@ -805,9 +805,11 @@ body {
 }
 .grid-container--destination .planet-image {
   grid-area: image;
-  width: 100%;
+}
+.grid-container--destination .planet-image img {
+  display: inline-block;
   height: auto;
-  max-width: 40%;
+  max-width: 40vw;
 }
 .grid-container--destination .tab-buttons {
   grid-area: tabs;
@@ -854,7 +856,6 @@ body {
   }
   .grid-container--destination .planet-image {
     justify-self: center;
-    max-width: 100%;
   }
   .grid-container--destination .destination-meta {
     -webkit-box-pack: start;
