@@ -1,18 +1,11 @@
-
 var planetData;
 
 fetch('./javascript/data.json').then(response => {
   return response.json();
 }).then(data => {
-  // Work with JSON data here
-  // console.log(data);
   planetData = data;
-  // console.log(tabTrigger);
-  // console.log(planetTitle);
-
-
 }).catch(err => {
-  // Do something for an error here
+  console.log('an error has occured');
 });
 
   const mainContent = document.getElementById('main-content');
@@ -23,7 +16,8 @@ fetch('./javascript/data.json').then(response => {
   const distance =  destinationMeta.firstElementChild.lastElementChild;
   const travel = destinationMeta.lastElementChild.lastElementChild;
   const tabTrigger = mainContent.querySelector('.tab-buttons');
-  const duration = 800;
+  const duration = 400;
+  var elementsToAnimate = mainContent.querySelectorAll(":not(h1):not(h1 > span):not(.tab-buttons):not(.tab-buttons > *)");
 
   tabTrigger.addEventListener('click', (e) => {
     let target = e.target;
@@ -31,27 +25,33 @@ fetch('./javascript/data.json').then(response => {
 
     planetData.destinations.forEach((planet) => {
 
-     if (planetSelected === planet.name) {
-       fadeOut(mainContent);
-       setTimeout(() => {
-        setActiveButton(target);
-        setText(planet.name, planetName);
-        setText(planet.description, planetDescription);
-        setText(planet.distance, distance);
-        setText(planet.travel, travel )
-        setImages(planet);
-        fadeIn(mainContent);
-        }, duration)
+      if (planetSelected === planet.name) {
 
-     }
+        [...elementsToAnimate].forEach( element => fadeOut(element));
 
-    })
+         setActiveButton(target);
+
+        //must wait for animation to end
+        setTimeout(() => {
+
+          setText(planet.name, planetName);
+          setText(planet.description, planetDescription);
+          setText(planet.distance, distance);
+          setText(planet.travel, travel );
+          setImages(planet);
+
+          [...elementsToAnimate].forEach(element => fadeIn(element));
+
+          }, duration)
+      }
+
+    });
   })
 
   function fadeOut(element) {
     const frames = [
-      { opacity: '100%' },
-      { opacity: '0%' }
+      { opacity: '1' },
+      { opacity: '0' }
     ]
 
     element.animate(
@@ -66,8 +66,8 @@ fetch('./javascript/data.json').then(response => {
 
   function fadeIn(element) {
     const frames = [
-      { opacity: '0%' },
-      { opacity: '100%' }
+      { opacity: '0' },
+      { opacity: '1' }
     ]
 
     element.animate(
@@ -81,8 +81,8 @@ fetch('./javascript/data.json').then(response => {
   }
   function setActiveButton(element) {
     activeButton = mainContent.querySelector("[aria-selected='true']");
-    activeButton.ariaSelected = 'false';
-    element.ariaSelected = 'true';
+    activeButton.setAttribute('aria-selected', 'false');
+    element.setAttribute('aria-selected', 'true');
   }
 
   function setText(text, element) {
