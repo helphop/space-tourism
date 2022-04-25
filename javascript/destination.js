@@ -79,6 +79,7 @@ fetch('./javascript/data.json').then(response => {
       }
     )
   }
+
   function setActiveButton(element) {
     activeButton = mainContent.querySelector("[aria-selected='true']");
     activeButton.setAttribute('aria-selected', 'false');
@@ -94,5 +95,6 @@ fetch('./javascript/data.json').then(response => {
     const img = planetImage.querySelector("img");
     source.srcset = data.images.webp;
     img.src = data.images.png;
+    img.alt = data.name;
   }
 
