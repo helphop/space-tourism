@@ -17,7 +17,9 @@ fetch('./javascript/data.json').then(response => {
   const travel = destinationMeta.lastElementChild.lastElementChild;
   const tabTrigger = mainContent.querySelector('.tab-buttons');
   const duration = 400;
-  var elementsToAnimate = mainContent.querySelectorAll(":not(h1):not(h1 > span):not(.tab-buttons):not(.tab-buttons > *)");
+  var elementsToAnimate = mainContent.querySelectorAll("[data-field]");
+  console.log(planetImage.tagName);
+
 
   tabTrigger.addEventListener('click', (e) => {
     let target = e.target;
@@ -26,22 +28,13 @@ fetch('./javascript/data.json').then(response => {
     planetData.destinations.forEach((planet) => {
 
       if (planetSelected === planet.name) {
-
         [...elementsToAnimate].forEach( element => fadeOut(element));
-
          setActiveButton(target);
 
         //must wait for animation to end
         setTimeout(() => {
-
-          setText(planet.name, planetName);
-          setText(planet.description, planetDescription);
-          setText(planet.distance, distance);
-          setText(planet.travel, travel );
-          setImages(planet);
-
-          [...elementsToAnimate].forEach(element => fadeIn(element));
-
+         [...elementsToAnimate].forEach(element => setValue(element, planet));
+         [...elementsToAnimate].forEach(element => fadeIn(element));
           }, duration)
       }
 
@@ -86,15 +79,14 @@ fetch('./javascript/data.json').then(response => {
     element.setAttribute('aria-selected', 'true');
   }
 
-  function setText(text, element) {
-    element.textContent = text;
+  function setValue(element, data) {
+      if (element.tagName === 'SOURCE') {
+        element.srcset = data['images'][element.dataset.field]
+      } else if (element.tagName === 'IMG') {
+        element.src = data['images'][element.dataset.field]
+      } else {
+        element.textContent = data[element.dataset.field];
+      }
   }
 
-  function setImages(data) {
-    const source = planetImage.querySelector("source");
-    const img = planetImage.querySelector("img");
-    source.srcset = data.images.webp;
-    img.src = data.images.png;
-    img.alt = data.name;
-  }
 
