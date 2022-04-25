@@ -3,10 +3,10 @@
   margin-top: var(--flow-space, 1em);
 }
 
-[data-flow-size='space-1'] {
+.flow-space-small {
   --flow-space: 0.2em;
 }
 
-[data-flow-size='space-2'] {
+.flow-space-medium {
   --flow-space: 0.4em;
 }
