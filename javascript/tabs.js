@@ -17,6 +17,41 @@ var siteData;
       }
   var elementsToAnimate = mainContent.querySelectorAll("[data-field]");
 
+    tabTrigger.addEventListener('keydown', (e) => {
+      const leftKey = 37;
+      const rightKey = 39;
+      const activeButton = tabTrigger.querySelector("[aria-selected='true']");
+      console.log(activeButton);
+      if (e.keyCode && e.keyCode === rightKey) {
+
+        const nextButton = activeButton.nextElementSibling;
+        const firstButton = tabTrigger.firstElementChild;
+
+        if (nextButton) {
+          nextButton.click()
+          setFocus(nextButton);
+        } else  {
+          firstButton.click();
+          setFocus(firstButton);
+        }
+
+      } else if (e.keyCode && e.keyCode === leftKey) {
+
+        const prevButton = activeButton.previousElementSibling;
+        const lastButton = tabTrigger.lastElementChild;
+
+        if(prevButton) {
+          prevButton.click();
+          setFocus(prevButton);
+        } else {
+          lastButton.click();
+          setFocus(lastButton);
+        }
+      }
+    });
+
+
+
   tabTrigger.addEventListener('click', (e) => {
     let target = e.target;
     let dataSection = tabTrigger.dataset.trigger;
@@ -73,5 +108,7 @@ var siteData;
         element.textContent = data[element.dataset.field];
       }
   }
+
+ function setFocus(element) {element.focus();}
 
 
