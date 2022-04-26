@@ -11,10 +11,11 @@ var siteData;
   const mainContent = document.getElementById('main-content');
   const tabTrigger = mainContent.querySelector("[data-trigger]");
   const elementsToAnimate = mainContent.querySelectorAll("[data-field]");
-  const animationProperites = {
+  const animationProperties = {
           duration: 400,
           easing: 'ease-out',
-          fill: 'forwards'
+          fill: 'both',
+          iterations: 1,
         }
 
 
@@ -65,7 +66,10 @@ var siteData;
 
           animatedElement.onfinish = event => {
             setValue(element, datum);
-            fadeIn(element);
+            animatedElement.effect.updateTiming({
+              direction: 'reverse',
+              duration: 1500
+            });
           }
         });
       }
@@ -78,15 +82,7 @@ var siteData;
       { opacity: '1' },
       { opacity: '0' }
     ]
-   return element.animate(frames, animationProperites);
-  }
-
-  function fadeIn(element) {
-    const frames = [
-      { opacity: '0' },
-      { opacity: '1' }
-    ]
-    element.animate(frames, animationProperites);
+   return element.animate(frames, animationProperties);
   }
 
   function setActiveButton(element) {
