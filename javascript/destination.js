@@ -5,21 +5,13 @@ fetch('./javascript/data.json').then(response => {
 }).then(data => {
   planetData = data;
 }).catch(err => {
-  console.log('an error has occured');
+  console.log('an error has occurred');
 });
 
   const mainContent = document.getElementById('main-content');
-  const planetImage = mainContent.querySelector('.planet-image');
-  const planetName = mainContent.querySelector('.planet-title');
-  const planetDescription = mainContent.querySelector('.planet-description');
-  const destinationMeta = mainContent.querySelector('.destination-meta');
-  const distance =  destinationMeta.firstElementChild.lastElementChild;
-  const travel = destinationMeta.lastElementChild.lastElementChild;
   const tabTrigger = mainContent.querySelector('.tab-buttons');
   const duration = 400;
   var elementsToAnimate = mainContent.querySelectorAll("[data-field]");
-  console.log(planetImage.tagName);
-
 
   tabTrigger.addEventListener('click', (e) => {
     let target = e.target;
@@ -28,16 +20,16 @@ fetch('./javascript/data.json').then(response => {
     planetData.destinations.forEach((planet) => {
 
       if (planetSelected === planet.name) {
-        [...elementsToAnimate].forEach( element => fadeOut(element));
-         setActiveButton(target);
+        setActiveButton(target);
+        [...elementsToAnimate].forEach( (element) => {
+          fadeOut(element)
+          setTimeout(() => {
+            setValue(element, planet);
+            fadeIn(element);
+          }, duration);
+        });
 
-        //must wait for animation to end
-        setTimeout(() => {
-         [...elementsToAnimate].forEach(element => setValue(element, planet));
-         [...elementsToAnimate].forEach(element => fadeIn(element));
-          }, duration)
       }
-
     });
   })
 
@@ -46,7 +38,8 @@ fetch('./javascript/data.json').then(response => {
       { opacity: '1' },
       { opacity: '0' }
     ]
-
+    //should return this and then can
+    //check when the animation ends
     element.animate(
       frames,
       {
