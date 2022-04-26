@@ -10,44 +10,37 @@ var siteData;
 
   const mainContent = document.getElementById('main-content');
   const tabTrigger = mainContent.querySelector("[data-trigger]");
+  const elementsToAnimate = mainContent.querySelectorAll("[data-field]");
   const animationProperites = {
-         duration: 400,
-         easing: 'ease-out',
-         fill: 'forwards'
-      }
-  var elementsToAnimate = mainContent.querySelectorAll("[data-field]");
-
-    tabTrigger.addEventListener('keydown', (e) => {
-      const leftKey = 37;
-      const rightKey = 39;
-      const activeButton = tabTrigger.querySelector("[aria-selected='true']");
-      console.log(activeButton);
-      if (e.keyCode && e.keyCode === rightKey) {
-
-        const nextButton = activeButton.nextElementSibling;
-        const firstButton = tabTrigger.firstElementChild;
-
-        if (nextButton) {
-          nextButton.click()
-          setFocus(nextButton);
-        } else  {
-          firstButton.click();
-          setFocus(firstButton);
+          duration: 400,
+          easing: 'ease-out',
+          fill: 'forwards'
         }
 
-      } else if (e.keyCode && e.keyCode === leftKey) {
 
-        const prevButton = activeButton.previousElementSibling;
-        const lastButton = tabTrigger.lastElementChild;
+  tabTrigger.addEventListener('keydown', (e) => {
+    const leftKey = 37;
+    const rightKey = 39;
+    const activeButton = tabTrigger.querySelector("[aria-selected='true']");
+    let selectedButton;
 
-        if(prevButton) {
-          prevButton.click();
-          setFocus(prevButton);
-        } else {
-          lastButton.click();
-          setFocus(lastButton);
-        }
-      }
+    if (e.keyCode && e.keyCode === rightKey) {
+
+      const nextButton = activeButton.nextElementSibling;
+      const firstButton = tabTrigger.firstElementChild;
+
+      selectedButton = nextButton ? nextButton : firstButton;
+
+    } else if (e.keyCode && e.keyCode === leftKey) {
+
+      const prevButton = activeButton.previousElementSibling;
+      const lastButton = tabTrigger.lastElementChild;
+
+      selectedButton = prevButton ? prevButton : lastButton;
+
+    }
+
+    if (selectedButton) updateButtonAttributes(selectedButton, activeButton)
     });
 
 
@@ -109,6 +102,14 @@ var siteData;
       }
   }
 
- function setFocus(element) {element.focus();}
+  function updateButtonAttributes(selectedButton, prevSelectedButton) {
+      setTabIndex(prevSelectedButton, '-1');
+      selectedButton.click();
+      setFocus(selectedButton);
+      setTabIndex(selectedButton);
+  }
+
+ function setFocus(element) { element.focus(); }
+ function setTabIndex(element, index=0) { element.setAttribute('tabindex', `${index}`); }
 
 
