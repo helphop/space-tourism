@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
     <script src="javascript/navigation.js" defer></script>
-    <script src="javascript/destination.js" defer></script>
+    <script src="javascript/tabs.js" defer></script>
     <title>Frontend Mentor | Space tourism website</title>
   </head>
 
@@ -43,11 +43,11 @@
         <source srcset="assets/destination/image-moon.webp" type="image/webp" data-field="webp">
         <img src="assets/destination/image-moon.png" alt="Moon in Space" width="445px" height="445px" data-field="png">
       </picture>
-      <div class="tab-buttons | underline-indicators flex">
-        <button aria-selected="true" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-planet="Moon">Moon</button>
-        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-planet="Mars">Mars</button>
-        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-planet="Europa">Europa</button>
-        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-planet="Titan">Titan</button>
+      <div class="tab-buttons | underline-indicators flex" data-trigger="destinations">
+        <button aria-selected="true" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Moon">Moon</button>
+        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Mars">Mars</button>
+        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Europa">Europa</button>
+        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Titan">Titan</button>
       </div>
       <article class="destination-info flow">
         <h2 class="planet-title | fs-800 ff-serif uppercase" data-field="name" >Moon</h2>

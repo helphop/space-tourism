@@ -1,15 +1,15 @@
-var planetData;
+var siteData;
 
   fetch('./javascript/data.json').then(response => {
     return response.json();
     }).then(data => {
-      planetData = data;
+      siteData = data;
     }).catch(err => {
       console.log('an error has occurred');
     });
 
   const mainContent = document.getElementById('main-content');
-  const tabTrigger = mainContent.querySelector('.tab-buttons');
+  const tabTrigger = mainContent.querySelector("[data-trigger]");
   const animationProperites = {
          duration: 400,
          easing: 'ease-out',
@@ -19,11 +19,12 @@ var planetData;
 
   tabTrigger.addEventListener('click', (e) => {
     let target = e.target;
-    let planetSelected = target.dataset.planet;
+    let dataSection = tabTrigger.dataset.trigger;
+    let dataSelected = target.dataset.selected;
 
-    planetData.destinations.forEach((planet) => {
+    siteData[dataSection].forEach((datum) => {
 
-      if (planetSelected === planet.name) {
+      if (dataSelected === datum.name) {
 
         setActiveButton(target);
 
@@ -31,7 +32,7 @@ var planetData;
          let animatedElement =  fadeOut(element)
 
           animatedElement.onfinish = event => {
-            setValue(element, planet);
+            setValue(element, datum);
             fadeIn(element);
           }
 
