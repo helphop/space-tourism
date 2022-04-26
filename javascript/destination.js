@@ -1,16 +1,20 @@
 var planetData;
 
-fetch('./javascript/data.json').then(response => {
-  return response.json();
-}).then(data => {
-  planetData = data;
-}).catch(err => {
-  console.log('an error has occurred');
-});
+  fetch('./javascript/data.json').then(response => {
+    return response.json();
+    }).then(data => {
+      planetData = data;
+    }).catch(err => {
+      console.log('an error has occurred');
+    });
 
   const mainContent = document.getElementById('main-content');
   const tabTrigger = mainContent.querySelector('.tab-buttons');
-  const duration = 400;
+  const animationProperites = {
+         duration: 400,
+         easing: 'ease-out',
+         fill: 'forwards'
+      }
   var elementsToAnimate = mainContent.querySelectorAll("[data-field]");
 
   tabTrigger.addEventListener('click', (e) => {
@@ -20,13 +24,17 @@ fetch('./javascript/data.json').then(response => {
     planetData.destinations.forEach((planet) => {
 
       if (planetSelected === planet.name) {
+
         setActiveButton(target);
+
         [...elementsToAnimate].forEach( (element) => {
-          fadeOut(element)
-          setTimeout(() => {
+         let animatedElement =  fadeOut(element)
+
+          animatedElement.onfinish = event => {
             setValue(element, planet);
             fadeIn(element);
-          }, duration);
+          }
+
         });
 
       }
@@ -38,16 +46,7 @@ fetch('./javascript/data.json').then(response => {
       { opacity: '1' },
       { opacity: '0' }
     ]
-    //should return this and then can
-    //check when the animation ends
-    element.animate(
-      frames,
-      {
-         duration: duration,
-         easing: 'ease-out',
-         fill: 'forwards'
-      }
-    )
+   return element.animate(frames, animationProperites);
   }
 
   function fadeIn(element) {
@@ -55,15 +54,7 @@ fetch('./javascript/data.json').then(response => {
       { opacity: '0' },
       { opacity: '1' }
     ]
-
-    element.animate(
-      frames,
-      {
-         duration: duration,
-         easing: 'ease-in',
-         fill: 'forwards'
-      }
-    )
+    element.animate(frames, animationProperites);
   }
 
   function setActiveButton(element) {
