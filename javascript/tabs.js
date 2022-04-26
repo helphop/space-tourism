@@ -19,6 +19,7 @@ var siteData;
 
 
   tabTrigger.addEventListener('keydown', (e) => {
+
     const leftKey = 37;
     const rightKey = 39;
     const activeButton = tabTrigger.querySelector("[aria-selected='true']");
@@ -40,12 +41,14 @@ var siteData;
 
     }
 
-    if (selectedButton) updateButtonAttributes(selectedButton, activeButton)
-    });
+    if (selectedButton) updateButtonAttributes(selectedButton, activeButton);
+
+  });
 
 
 
   tabTrigger.addEventListener('click', (e) => {
+
     let target = e.target;
     let dataSection = tabTrigger.dataset.trigger;
     let dataSelected = target.dataset.selected;
@@ -57,16 +60,16 @@ var siteData;
         setActiveButton(target);
 
         [...elementsToAnimate].forEach( (element) => {
+
          let animatedElement =  fadeOut(element)
 
           animatedElement.onfinish = event => {
             setValue(element, datum);
             fadeIn(element);
           }
-
         });
-
       }
+
     });
   })
 
@@ -104,12 +107,11 @@ var siteData;
 
   function updateButtonAttributes(selectedButton, prevSelectedButton) {
       setTabIndex(prevSelectedButton, '-1');
-      selectedButton.click();
-      setFocus(selectedButton);
       setTabIndex(selectedButton);
+      selectedButton.click();
+      selectedButton.focus();
   }
 
- function setFocus(element) { element.focus(); }
  function setTabIndex(element, index=0) { element.setAttribute('tabindex', `${index}`); }
 
 
