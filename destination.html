@@ -43,11 +43,11 @@
         <source srcset="assets/destination/image-moon.webp" type="image/webp" data-field="webp">
         <img src="assets/destination/image-moon.png" alt="Moon in Space" width="445px" height="445px" data-field="png">
       </picture>
-      <div class="tab-buttons | underline-indicators flex" data-trigger="destinations">
-        <button aria-selected="true" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Moon" tabindex="0">Moon</button>
-        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Mars" tabindex="-1">Mars</button>
-        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Europa" tabindex="-1">Europa</button>
-        <button aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Titan" tabindex="-1">Titan</button>
+      <div class="tab-buttons | underline-indicators flex" data-trigger="destinations" role="tablist" aria-label="destination list">
+        <button role="tab" aria-selected="true" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="moon-tab" data-selected="Moon" tabindex="0">Moon</button>
+        <button role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="mars-tab" data-selected="Mars" tabindex="-1">Mars</button>
+        <button role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="europa-tab" data-selected="Europa" tabindex="-1">Europa</button>
+        <button role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="titan-tab" data-selected="Titan" tabindex="-1">Titan</button>
       </div>
       <article class="destination-info flow">
         <h2 class="planet-title | fs-800 ff-serif uppercase" data-field="name" >Moon</h2>

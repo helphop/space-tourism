@@ -28,15 +28,15 @@ var siteData;
 
     if (e.keyCode && e.keyCode === rightKey) {
 
-      const nextButton = activeButton.nextElementSibling;
-      const firstButton = tabTrigger.firstElementChild;
+      nextButton = activeButton.nextElementSibling;
+      firstButton = tabTrigger.firstElementChild;
 
       selectedButton = nextButton ? nextButton : firstButton;
 
     } else if (e.keyCode && e.keyCode === leftKey) {
 
-      const prevButton = activeButton.previousElementSibling;
-      const lastButton = tabTrigger.lastElementChild;
+      prevButton = activeButton.previousElementSibling;
+      lastButton = tabTrigger.lastElementChild;
 
       selectedButton = prevButton ? prevButton : lastButton;
 
