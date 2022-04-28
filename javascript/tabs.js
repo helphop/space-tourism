@@ -9,7 +9,7 @@
       siteData = data;
     }).catch(err => {
       console.log('an error has occurred');
-    });
+  });
 
   const tabList = document.querySelector('[role="tablist"]');
   const tabs = tabList.querySelectorAll('[role="tab"]');
@@ -18,7 +18,7 @@
           duration: 400,
           easing: 'ease-out',
           fill: 'both',
-          iterations: 1,
+          iterations: 1
         }
   const keydownLeft = 37;
   const keydownRight = 39;
@@ -26,32 +26,36 @@
   let tabFocus = 0;
 
   tabList.addEventListener('click', (e) => {
+    //get the button that was clicked
     let target = e.target;
+    //get the section of the JSON data to use
     let dataSection = tabList.dataset.section;
+    //get the selected value from the clicked button
     let dataSelected = target.dataset.selected;
+    //find the record in the JSON data
+    let datum = siteData[`${dataSection}`].find(record => record.name === `${dataSelected}`);
 
-    siteData[dataSection].forEach((datum) => {
+    //Update the field details
+    [...elementsToUpdate].forEach(element => {
 
-      if (dataSelected === datum.name) {
+      animatedTab =  fadeOut(element)
 
-        const currentButton = document.querySelector('button[role="tab"][aria-selected="true"]');
-        updateButtonAttributes(currentButton, -1, 'false');
-        updateButtonAttributes(target);
-
-        //Update the field details
-        [...elementsToUpdate].forEach( (element) => {
-
-         let animatedTab =  fadeOut(element)
-
-          animatedTab.onfinish = event => {
-            setValue(element, datum);
-            fadeIn(element);
-          }
-        });
+      animatedTab.onfinish = event => {
+        updateField(element, datum);
+        fadeIn(element);
       }
 
     });
-  })
+
+    //Update the area-selected and tabindex on the buttons
+    const currentButton = document.querySelector('button[role="tab"][aria-selected="true"]');
+    updateButtonAttributes(currentButton, -1, 'false');
+    updateButtonAttributes(target);
+
+    //Update the TabFocus value so in sync with the clicked element
+    updateTabFocus(target);
+
+  });
 
   tabList.addEventListener('keydown', (e) => {
 
@@ -78,15 +82,11 @@
       tabs[tabFocus].focus();
 
     }
-
   })
 
+  //Use keyup for spacebar so don't get double click
   tabList.addEventListener('keyup', (e) => {
-
-    if (e.keyCode === spaceBar) {
-       tabs[tabFocus].click();
-    }
-
+    if (e.keyCode === spaceBar) tabs[tabFocus].click();
   })
 
   function fadeOut(element) {
@@ -107,10 +107,10 @@
 
   function updateButtonAttributes(button, tabIndex=0, ariaSelected='true') {
     button.setAttribute('aria-selected', `${ariaSelected}`);
-    setTabIndex(button, `${tabIndex}`);
+    button.setAttribute('tabindex', `${tabIndex}`)
   }
 
-  function setValue(element, data) {
+  function updateField(element, data) {
       if (element.tagName === 'SOURCE') {
         element.srcset = data['images'][element.dataset.field]
       } else if (element.tagName === 'IMG') {
@@ -120,6 +120,6 @@
       }
   }
 
-  function setTabIndex(element, index=0) { element.setAttribute('tabindex', `${index}`); }
+  function updateTabFocus(target) { tabFocus = [...tabs].indexOf(target); }
 
 }());
