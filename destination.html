@@ -12,7 +12,7 @@
   </head>
 
   <body class="destination">
-    <a href="#main-content" class="skip-to-content bg-white text-dark">Skip to main content</a>
+    <a href="#main-content" class="skip-to-content bg-white text-dark" tabindex="0">Skip to main content</a>
     <header class="primary-header flex">
       <div>
         <!-- Must put the dimensions of images so the browser knows the aspect ratio-->
@@ -37,13 +37,13 @@
       </nav>
     </header>
     <!-- every page must have a main element -->
-    <main id="main-content" class="grid-container grid-container--destination | flow">
+    <main id="main-content" class="grid-container grid-container--destination | flow" tabindex="-1">
       <h1 class="numbered-title ff-sans-cond fs-500 uppercase text-white letter-spacing-1"><span aria-hidden="true">01</span> Pick your destination</h1>
       <picture class="planet-image">
         <source srcset="assets/destination/image-moon.webp" type="image/webp" data-field="webp">
         <img src="assets/destination/image-moon.png" alt="Moon in Space" width="445px" height="445px" data-field="png">
       </picture>
-      <div class="tab-buttons | underline-indicators flex" data-trigger="destinations" role="tablist" aria-label="destination list">
+      <div class="tab-buttons | underline-indicators flex" data-section="destinations" role="tablist" aria-label="destination list">
         <button role="tab" aria-selected="true" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="moon-tab" data-selected="Moon" tabindex="0">Moon</button>
         <button role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="mars-tab" data-selected="Mars" tabindex="-1">Mars</button>
         <button role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="europa-tab" data-selected="Europa" tabindex="-1">Europa</button>

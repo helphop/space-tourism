@@ -542,6 +542,10 @@ body {
   color: var(--clr-white);
 }
 
+[role=tab]:focus {
+  color: limegreen;
+}
+
 .dot-button {
   --dot-size: clamp(0.35rem, 0.8vw, 0.8rem);
   padding: var(--dot-size);

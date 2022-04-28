@@ -1,5 +1,8 @@
-var siteData;
+ (function() {
+ //used to store the date
+  var siteData;
 
+  //load the site data
   fetch('./javascript/data.json').then(response => {
     return response.json();
     }).then(data => {
@@ -8,73 +11,82 @@ var siteData;
       console.log('an error has occurred');
     });
 
-  const mainContent = document.getElementById('main-content');
-  const tabTrigger = mainContent.querySelector("[data-trigger]");
-  const elementsToAnimate = mainContent.querySelectorAll("[data-field]");
+  const tabList = document.querySelector('[role="tablist"]');
+  const tabs = tabList.querySelectorAll('[role="tab"]');
+  const elementsToUpdate =document.querySelectorAll("[data-field]");
   const animationProperties = {
           duration: 400,
           easing: 'ease-out',
           fill: 'both',
           iterations: 1,
         }
+  const keydownLeft = 37;
+  const keydownRight = 39;
+  const spaceBar = 32;
+  let tabFocus = 0;
 
-
-  tabTrigger.addEventListener('keydown', (e) => {
-
-    const leftKey = 37;
-    const rightKey = 39;
-    const activeButton = tabTrigger.querySelector("[aria-selected='true']");
-    let selectedButton;
-
-    if (e.keyCode && e.keyCode === rightKey) {
-
-      nextButton = activeButton.nextElementSibling;
-      firstButton = tabTrigger.firstElementChild;
-
-      selectedButton = nextButton ? nextButton : firstButton;
-
-    } else if (e.keyCode && e.keyCode === leftKey) {
-
-      prevButton = activeButton.previousElementSibling;
-      lastButton = tabTrigger.lastElementChild;
-
-      selectedButton = prevButton ? prevButton : lastButton;
-
-    }
-
-    if (selectedButton) updateButtonAttributes(selectedButton, activeButton);
-
-  });
-
-
-
-  tabTrigger.addEventListener('click', (e) => {
-
+  tabList.addEventListener('click', (e) => {
     let target = e.target;
-    let dataSection = tabTrigger.dataset.trigger;
+    let dataSection = tabList.dataset.section;
     let dataSelected = target.dataset.selected;
 
     siteData[dataSection].forEach((datum) => {
 
       if (dataSelected === datum.name) {
 
-        setActiveButton(target);
+        const currentButton = document.querySelector('button[role="tab"][aria-selected="true"]');
+        updateButtonAttributes(currentButton, -1, 'false');
+        updateButtonAttributes(target);
 
-        [...elementsToAnimate].forEach( (element) => {
+        //Update the field details
+        [...elementsToUpdate].forEach( (element) => {
 
-         let animatedElement =  fadeOut(element)
+         let animatedTab =  fadeOut(element)
 
-          animatedElement.onfinish = event => {
+          animatedTab.onfinish = event => {
             setValue(element, datum);
-            animatedElement.effect.updateTiming({
-              direction: 'reverse',
-              duration: 1500
-            });
+            fadeIn(element);
           }
         });
       }
 
     });
+  })
+
+  tabList.addEventListener('keydown', (e) => {
+
+      if (e.keyCode === keydownLeft || e.keyCode === keydownRight) {
+          tabs[tabFocus].setAttribute("tabindex", -1);
+
+      if (e.keyCode === keydownRight) {
+          if (tabFocus < tabs.length-1) {
+            tabFocus++;
+          } else {
+            tabFocus = 0;
+          }
+      }
+
+      if (e.keyCode === keydownLeft) {
+        if (tabFocus > 0) {
+          tabFocus--;
+        } else {
+          tabFocus = tabs.length - 1;
+        }
+      }
+
+      tabs[tabFocus].setAttribute("tabindex", 0);
+      tabs[tabFocus].focus();
+
+    }
+
+  })
+
+  tabList.addEventListener('keyup', (e) => {
+
+    if (e.keyCode === spaceBar) {
+       tabs[tabFocus].click();
+    }
+
   })
 
   function fadeOut(element) {
@@ -85,10 +97,17 @@ var siteData;
    return element.animate(frames, animationProperties);
   }
 
-  function setActiveButton(element) {
-    activeButton = mainContent.querySelector("[aria-selected='true']");
-    activeButton.setAttribute('aria-selected', 'false');
-    element.setAttribute('aria-selected', 'true');
+  function fadeIn(element) {
+    const frames = [
+      { opacity: '0' },
+      { opacity: '1' }
+    ]
+   return element.animate(frames, animationProperties);
+  }
+
+  function updateButtonAttributes(button, tabIndex=0, ariaSelected='true') {
+    button.setAttribute('aria-selected', `${ariaSelected}`);
+    setTabIndex(button, `${tabIndex}`);
   }
 
   function setValue(element, data) {
@@ -101,13 +120,6 @@ var siteData;
       }
   }
 
-  function updateButtonAttributes(selectedButton, prevSelectedButton) {
-      setTabIndex(prevSelectedButton, '-1');
-      setTabIndex(selectedButton);
-      selectedButton.click();
-      selectedButton.focus();
-  }
+  function setTabIndex(element, index=0) { element.setAttribute('tabindex', `${index}`); }
 
- function setTabIndex(element, index=0) { element.setAttribute('tabindex', `${index}`); }
-
-
+}());
