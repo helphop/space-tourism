@@ -12,7 +12,7 @@
 </head>
 
   <body class="crew">
-    <a href="#main-content" class="skip-to-content bg-white text-dark">Skip to main content</a>
+    <a href="#main-content" class="skip-to-content bg-white text-dark" tabindex="0">Skip to main content</a>
     <header class="primary-header flex">
       <div>
         <!-- Must put the dimensions of images so the browser knows the aspect ratio-->
@@ -37,18 +37,18 @@
       </nav>
     </header>
     <!-- every page must have a main element -->
-    <main id="main-content" class="grid-container grid-container--crew | flow">
+    <main id="main-content" class="grid-container grid-container--crew | flow" tabindex="-1">
       <h1 class="numbered-title ff-sans-cond fs-500 uppercase text-white letter-spacing-1"><span aria-hidden="true">02</span>
   Meet your crew</h1>
       <picture class="crew-image width-100">
         <source srcset="assets/crew/image-douglas-hurley.webp" type="image/webp" data-field="webp">
         <img src="assets/crew/image-douglas-hurley.png" alt="Moon in Space" width="514px" height="700px" data-field="png">
       </picture>
-      <div class="dot-buttons | flex" data-section="crew">
-        <button class="dot-button" aria-selected="true" data-selected="Douglas Hurley"><span class="sr-only">Douglas Hurley</span></button>
-        <button class="dot-button" aria-selected="false" data-selected="Mark Shuttleworth"><span class="sr-only">Mark Shuttlewort</span></button>
-        <button class="dot-button" aria-selected="false" data-selected="Victor Glover"><span class="sr-only">Victor Glover</span></button>
-        <button class="dot-button" aria-selected="false" data-selected="Anousheh Ansari"><span class="sr-only">Anousheh Ansari</span></button>
+      <div class="dot-buttons | flex" data-section="crew" role="tablist" aria-label="crew list">
+        <button role="tab" class="dot-button" aria-selected="true" aria-controls="Douglas-Hurley-tab" data-selected="Douglas Hurley"><span class="sr-only">Douglas Hurley</span></button>
+        <button role="tab" class="dot-button" aria-selected="false" aria-controls="Mark-Shuttleworth-tab" data-selected="Mark Shuttleworth"><span class="sr-only">Mark Shuttlewort</span></button>
+        <button role="tab" class="dot-button" aria-selected="false" aria-controls="Victor-Glover-tab" data-selected="Victor Glover"><span class="sr-only">Victor Glover</span></button>
+        <button role="tab" class="dot-button" aria-selected="false" aria-controls="Anousheh-Ansari-tab" data-selected="Anousheh Ansari"><span class="sr-only">Anousheh Ansari</span></button>
       </div>
       <article class="crew-meta | flow">
         <header class="flow flow-space-small">
