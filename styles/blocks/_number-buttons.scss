@@ -1,0 +1,27 @@
+.number-button {
+  position: relative;
+  --button-size: 2.5em;
+  font-family: var(--ff-serif);
+  font-size: var(--fs-600);
+  color: var(--clr-white);
+  border-radius: 50%;
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: var(--clr-dark);
+  //animate box-shadow as more performant and does not require pseudo elements
+  box-shadow: 0px 0px 0px 1px hsl(var(--clr-white-hsl) / .25);
+  will-change: box-shadow;
+  transition: box-shadow var(--duration-med) ease-out;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 0px 0px 1px var(--clr-white);
+  }
+
+  &[aria-selected=true] {
+    color: var(--clr-dark);
+    background-color: var(--clr-white);
+    box-shadow: 0px 0px 0px 1px hsl(var(--clr-white-hsl));
+  }
+
+}

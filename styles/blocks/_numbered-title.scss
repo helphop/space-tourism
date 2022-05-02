@@ -6,7 +6,7 @@
 
   span {
     color: hsl(var(--clr-white-hsl) / 0.25);
-    margin-right: .85em; //reLative to the font size of this element so scales proportionately
+    margin-right: .85em;
     font-weight: var(--fw-bold);
   }
 }

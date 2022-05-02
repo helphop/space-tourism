@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
     <script src="javascript/navigation.js" defer></script>
-    <!-- <script src="javascript/tabs.js" defer></script> -->
+    <script src="javascript/tabs.js" defer></script>
     <title>Frontend Mentor | Space tourism website</title>
   </head>
 
@@ -19,7 +19,7 @@
         <img src="assets/shared/logo.svg" class="logo" alt="White Circle Logo" width="40px" height="40px">
       </div>
       <!-- For accessibility we should always put the toggle button inside the nav element -->
-      <nav role="navigation" aria-label="primary navigation">
+      <nav role="navigation" aria-label="primary">
         <button id='menu-trigger' class="menu-trigger click-target-helper" aria-controls="primary-navigation"
           aria-haspopup="true" aria-expanded="false" tabindex="0">
           <span class="sr-only">Open Menu</span>
@@ -29,10 +29,10 @@
                 aria-hidden="true">00</span>Home</a> </li>
           <li><a class=" uppercase text-white letter-spacing-2" href="destination.html"><span
                 aria-hidden="true">01</span>Destination</a></li>
-          <li class="active"><a class="uppercase text-white letter-spacing-2" href="crew.html"><span
+          <li><a class="uppercase text-white letter-spacing-2" href="crew.html"><span
                 aria-hidden="true">02</span>Crew</a>
           </li>
-          <li><a class="uppercase text-white letter-spacing-2" href="technology.html"><span
+          <li class="active"><a class="uppercase text-white letter-spacing-2" href="technology.html"><span
                 aria-hidden="true">03</span>Technology</a></li>
         </ul>
       </nav>
@@ -41,21 +41,29 @@
     <main id="main-content" class="grid-container grid-container--tech | flow" tabindex="-1">
       <h1 class="numbered-title ff-sans-cond fs-500 uppercase text-white letter-spacing-1"><span aria-hidden="true">03</span>
               Space launch 101</h1>
-      <picture class="tech-image width-100">
-        <source srcset="assets/technology/image-launch-vehicle-landscape.jpg" type="image/jpg" data-field="webp">
-        <img src="assets/technology/image-launch-vehicle-landscape.jpg" alt="Moon in Space" width="768px" height="310px" data-field="png">
+      <picture class="tech-image">
+        <source
+          media="(min-width: 900px)"
+          srcset="assets/technology/image-launch-vehicle-portrait.jpg"
+          type="image/jpg"
+          data-field="portrait">
+        <img src="assets/technology/image-launch-vehicle-landscape.jpg"
+          alt="Moon in Space"
+          width="768px"
+          height="310px"
+          data-field="landscape">
       </picture>
-      <article>
-        <div class="number-buttons | grid">
-          <button class="number-button" aria-selected="true">1</button>
-          <button class="number-button" aria-selected="false">2</button>
-          <button class="number-button" aria-selected="false">3</button>
+        <div class="number-buttons | grid" data-section="technology" role="tablist" aria-label="technology list">
+          <button role="tab" class="number-button" aria-selected="true" aria-controls="Launch Vehicle Tab" data-selected="Launch vehicle">1</button>
+          <button role="tab" class="number-button" aria-selected="false" aria-controls="Space Port Tab" data-selected="Spaceport">2</button>
+          <button role="tab" class="number-button" aria-selected="false" aria-controls="Space Capsule Tab" data-selected="Space capsule">3</button>
         </div>
-        <header>
+        <article class="tech-meta | flow">
+        <header class="flow flow-space-med">
           <h2 class="fs-300 uppercase ff-sans-cond text-accent letter-spacing-3">The terminology...</h2>
           <p class="fs-700 uppercase ff-serif no-wrap" data-field="name">Launch vehicle</p>
         </header>
-        <p class="text-accent">A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a
+        <p class="text-accent" data-field="description">A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a
         payload from Earth's surface to space, usually to Earth orbit or beyond. Our
         WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall,
         it's quite an awe-inspiring sight on the launch pad!</p>

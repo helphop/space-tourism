@@ -84,7 +84,6 @@
   --letter-spacing-xs: 1.25px;
 
   @include for-tablet-up {
-    --fs-900: 9.375rem; //150px
     --fs-800: 5rem; //80px
     --fs-700: 2.5rem; //40px
     --fs-600: 2rem; //24px

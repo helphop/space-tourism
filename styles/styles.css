@@ -166,7 +166,6 @@ button {
 }
 @media (min-width: 37.5em) {
   :root {
-    --fs-900: 9.375rem;
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 2rem;
@@ -431,7 +430,7 @@ a:focus-visible,
   --flow-space: 0.2em;
 }
 
-.flow-space-medium {
+.flow-space-med {
   --flow-space: 0.4em;
 }
 
@@ -445,7 +444,7 @@ body {
   display: grid;
   grid-template-rows: -webkit-min-content 1fr;
   grid-template-rows: min-content 1fr;
-  background: var(--bg-image) 0/cover fixed;
+  background-image: var(--bg-image) 0/cover fixed;
   overflow-x: hidden;
 }
 
@@ -542,10 +541,6 @@ body {
   color: var(--clr-white);
 }
 
-[role=tab]:focus {
-  color: limegreen;
-}
-
 .dot-button {
   --dot-size: clamp(0.35rem, 0.8vw, 0.8rem);
   padding: var(--dot-size);
@@ -600,13 +595,13 @@ body {
           box-shadow: 0px 0px 0px 1px hsl(var(--clr-white-hsl));
 }
 
-[aria-label="primary navigation"] {
+[aria-label=primary] {
   z-index: var(--layer-4);
 }
-[aria-label="primary navigation"] .menu-trigger {
+[aria-label=primary] .menu-trigger {
   display: none;
 }
-[aria-label="primary navigation"] .primary-navigation-list {
+[aria-label=primary] .primary-navigation-list {
   --underline-gap: 2.25rem;
   --gap: 8.5625rem;
   font-size: var(--fs-300);
@@ -615,21 +610,21 @@ body {
   background: hsl(var(--clr-dark-hsl)/0.95);
 }
 @supports ((-webkit-backdrop-filter: blur(40px)) or (backdrop-filter: blur(40px))) {
-  [aria-label="primary navigation"] .primary-navigation-list {
+  [aria-label=primary] .primary-navigation-list {
     -webkit-backdrop-filter: blur(40px);
             backdrop-filter: blur(40px);
     background: hsl(var(--clr-white-hsl)/0.04);
   }
 }
-[aria-label="primary navigation"] .primary-navigation-list a {
+[aria-label=primary] .primary-navigation-list a {
   text-decoration: none;
 }
-[aria-label="primary navigation"] .primary-navigation-list a span {
+[aria-label=primary] .primary-navigation-list a span {
   font-weight: var(--fw-bold);
   margin-right: 0.5em;
 }
 @media (max-width: 37.4374em) {
-  [aria-label="primary navigation"] .menu-trigger {
+  [aria-label=primary] .menu-trigger {
     display: block;
     position: absolute;
     top: 2rem;
@@ -643,19 +638,19 @@ body {
     width: var(--bg-size);
     height: var(--bg-size);
   }
-  [aria-label="primary navigation"] .menu-trigger:focus-visible {
+  [aria-label=primary] .menu-trigger:focus-visible {
     outline: 2px solid var(--clr-accent);
     outline-offset: 5px;
   }
-  [aria-label="primary navigation"] .menu-trigger[aria-expanded=true] {
+  [aria-label=primary] .menu-trigger[aria-expanded=true] {
     background-image: url(../../assets/shared/icon-close.svg);
   }
-  [aria-label="primary navigation"] .menu-trigger[aria-expanded=true] ~ .primary-navigation-list {
+  [aria-label=primary] .menu-trigger[aria-expanded=true] ~ .primary-navigation-list {
     -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
             transform: translateX(0);
   }
-  [aria-label="primary navigation"] .primary-navigation-list {
+  [aria-label=primary] .primary-navigation-list {
     font-size: var(--fs-500);
     position: fixed;
     inset: 0 0 0 30%;
@@ -674,23 +669,23 @@ body {
     transition: transform 200ms ease-out, visibility 0s 200ms, -webkit-transform 200ms ease-out;
     --gap: 1rem;
   }
-  [aria-label="primary navigation"] .primary-navigation-list.underline-indicators > * {
+  [aria-label=primary] .primary-navigation-list.underline-indicators > * {
     --underline-gap: 0.3rem;
   }
-  [aria-label="primary navigation"] .primary-navigation-list.underline-indicators > *::before {
+  [aria-label=primary] .primary-navigation-list.underline-indicators > *::before {
     height: 100%;
     width: 4px;
     right: 0;
   }
 }
 @media (min-width: 37.5em) {
-  [aria-label="primary navigation"] .primary-navigation-list {
+  [aria-label=primary] .primary-navigation-list {
     padding-inline: clamp(3rem, 7vw, 7.75rem);
     --gap: clamp(3rem, 5vw, 4.5rem);
   }
 }
 @media (min-width: 37.5em) and (max-width: 56.1875em) {
-  [aria-label="primary navigation"] .primary-navigation-list span {
+  [aria-label=primary] .primary-navigation-list span {
     display: none;
   }
 }
@@ -796,18 +791,18 @@ body {
   }
 }
 @media (min-width: 56.25em) {
-  .grid-container[data-style=home] {
+  .grid-container--home {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end;
   }
-  .grid-container[data-style=home] > :first-child {
+  .grid-container--home > :first-child {
     grid-column: 2;
   }
-  .grid-container[data-style=home] > :last-child {
+  .grid-container--home > :last-child {
     grid-column: 3;
   }
-  .grid-container[data-style=home] > :last-child {
+  .grid-container--home > :last-child {
     justify-self: end;
   }
 }
@@ -924,6 +919,65 @@ body {
   .grid-container--crew {
     grid-template-areas: ". title image ." ". content image ." ". tabs image .";
     justify-items: start;
+  }
+}
+.grid-container--tech {
+  padding-inline: 0;
+  --flow-space: 2rem;
+  -ms-flex-line-pack: start;
+      align-content: start;
+  grid-template-columns: clamp(1.5rem, 5vw, 3.5rem) 1fr clamp(1.5rem, 5vw, 3.5rem);
+  grid-template-areas: ". title ." "image image image" ". tabs ." ". content .";
+}
+.grid-container--tech .numbered-title {
+  grid-area: title;
+}
+.grid-container--tech .tech-image {
+  grid-area: image;
+  max-width: 100%;
+  width: 100%;
+}
+.grid-container--tech .tech-image > img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  max-height: clamp(170px, 25vw, 527px);
+}
+.grid-container--tech .number-buttons {
+  grid-area: tabs;
+  grid-auto-flow: column;
+  justify-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.grid-container--tech .tech-meta {
+  grid-area: content;
+}
+@media (min-width: 37.5em) {
+  .grid-container--tech {
+    margin-top: 2rem;
+  }
+  .grid-container--tech .numbered-title {
+    justify-self: start;
+  }
+}
+@media (min-width: 56.25em) {
+  .grid-container--tech {
+    grid-template-columns: clamp(1.5rem, 15vw, 6vw) auto 1fr 1fr;
+    grid-template-areas: ". title title title" ". tabs content image";
+  }
+  .grid-container--tech .tech-image {
+    display: grid;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+  .grid-container--tech .tech-image img {
+    min-height: 527px;
+  }
+  .grid-container--tech .number-buttons {
+    grid-auto-flow: row;
   }
 }
 
