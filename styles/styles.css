@@ -85,9 +85,9 @@ button {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../../assets/fonts/bellefair/bellefair-v11-latin-regular.eot");
+  src: url("/assets/fonts/bellefair/bellefair-v11-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: url("../../assets/fonts/bellefair/bellefair-v11-latin-regular.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/bellefair/bellefair-v11-latin-regular.woff2") format("woff2"), url("../../assets/fonts/bellefair/bellefair-v11-latin-regular.woff") format("woff"), url("../../assets/fonts/bellefair/bellefair-v11-latin-regular.ttf") format("truetype"), url("../../assets/fonts/bellefair/bellefair-v11-latin-regular.svg#Bellefair") format("svg");
+  src: url("/assets/fonts/bellefair/bellefair-v11-latin-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/bellefair/bellefair-v11-latin-regular.woff2") format("woff2"), url("/assets/fonts/bellefair/bellefair-v11-latin-regular.woff") format("woff"), url("/assets/fonts/bellefair/bellefair-v11-latin-regular.ttf") format("truetype"), url("/assets/fonts/bellefair/bellefair-v11-latin-regular.svg#Bellefair") format("svg");
   /* Legacy iOS */
 }
 /* barlow-condensed-regular - latin */
@@ -96,9 +96,9 @@ button {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../../assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.eot");
+  src: url("/assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: url("../../assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.woff2") format("woff2"), url("../../assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.woff") format("woff"), url("../../assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.ttf") format("truetype"), url("../../assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.svg#BarlowCondensed") format("svg");
+  src: url("/assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.woff2") format("woff2"), url("/assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.woff") format("woff"), url("/assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.ttf") format("truetype"), url("/assets/fonts/barlow-condensed/barlow-condensed-v11-latin-regular.svg#BarlowCondensed") format("svg");
   /* Legacy iOS */
 }
 /* barlow-regular - latin */
@@ -107,9 +107,9 @@ button {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../../assets/fonts/barlow/barlow-v11-latin-regular.eot");
+  src: url("/assets/fonts/barlow/barlow-v11-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: url("../../assets/fonts/barlow/barlow-v11-latin-regular.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/barlow/barlow-v11-latin-regular.woff2") format("woff2"), url("../../assets/fonts/barlow/barlow-v11-latin-regular.woff") format("woff"), url("../../assets/fonts/barlow/barlow-v11-latin-regular.ttf") format("truetype"), url("../../assets/fonts/barlow/barlow-v11-latin-regular.svg#Barlow") format("svg");
+  src: url("/assets/fonts/barlow/barlow-v11-latin-regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/barlow/barlow-v11-latin-regular.woff2") format("woff2"), url("/assets/fonts/barlow/barlow-v11-latin-regular.woff") format("woff"), url("/assets/fonts/barlow/barlow-v11-latin-regular.ttf") format("truetype"), url("/assets/fonts/barlow/barlow-v11-latin-regular.svg#Barlow") format("svg");
   /* Legacy iOS */
 }
 /* barlow-condensed-700 - latin */
@@ -118,9 +118,9 @@ button {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("../../assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.eot");
+  src: url("/assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.eot");
   /* IE9 Compat Modes */
-  src: local(""), url("../../assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.woff2") format("woff2"), url("../../assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.woff") format("woff"), url("../../assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.ttf") format("truetype"), url("../../assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.svg#BarlowCondensed") format("svg");
+  src: local(""), url("/assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.woff2") format("woff2"), url("/assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.woff") format("woff"), url("/assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.ttf") format("truetype"), url("/assets/fonts/barlow-condensed-700/barlow-condensed-v11-latin-700.svg#BarlowCondensed") format("svg");
   /* Legacy iOS */
 }
 :root {
