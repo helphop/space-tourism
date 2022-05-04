@@ -5,27 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
     <script src="javascript/navigation.js" defer></script>
     <script src="javascript/tabs.js" defer></script>
+    <link rel="canonical" href="http://127.0.0.1:5500/destination.html">
     <title>Frontend Mentor | Space tourism website</title>
+
+    <meta name="twitter:title" content="Space Tourism ">
+    <meta name="twitter:description" content="A test Site About Space Tourism which talks about traveling to space just for fun.">
+    <meta name="twitter:image" content="assets/technology/image-launch-vehicle-portrait.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="A test Site About Space Tourism which talks about traveling to space just for fun.">
+    <meta name="og:title" content="Space Tourism Travel ">
+    <meta name="og:type" content="image">
+    <meta name="og:image" content="assets/technology/image-space-capsule-portrait.jpg">
+    <meta name="og:url" content="http://127.0.0.1:5500/destination.html">
+
   </head>
 
   <body class="destination">
-    <a href="#main-content" class="skip-to-content bg-white text-dark" tabindex="0">Skip to main content</a>
+    <a href="#main-content" class="skip-to-content bg-white text-dark">Skip to main content</a>
     <header class="primary-header flex">
       <div>
         <!-- Must put the dimensions of images so the browser knows the aspect ratio-->
-        <img src="assets/shared/logo.svg" class="logo" alt="White Circle Logo" width="40px" height="40px">
+        <img src="assets/shared/logo.svg" class="logo" alt="White disk with black spinning top like shape" width="40px" height="40px">
       </div>
       <!-- For accessibility we should always put the toggle button inside the nav element -->
-      <nav role="navigation" aria-label="primary">
-        <button id='menu-trigger' class="menu-trigger click-target-helper" aria-controls="primary-navigation"
+      <nav  aria-label="primary">
+        <button type="button" id='menu-trigger' class="menu-trigger click-target-helper" aria-controls="primary-navigation-list"
           aria-haspopup="true" aria-expanded="false" tabindex="0">
           <span class="sr-only">Open Menu</span>
         </button>
         <ul id="primary-navigation-list" class="primary-navigation-list underline-indicators  | flex">
-          <li ><a class="uppercase text-white letter-spacing-2" href="index.html"><span
+          <li ><a class="uppercase text-white letter-spacing-2 click-target-helper" href="index.html"><span
                 aria-hidden="true">00</span>Home</a> </li>
           <li class="active"><a class=" uppercase text-white letter-spacing-2" href="destination.html"><span
                 aria-hidden="true">01</span>Destination</a></li>
@@ -44,10 +56,10 @@
         <img src="assets/destination/image-moon.png" alt="Moon in Space" width="445px" height="445px" data-field="png">
       </picture>
       <div class="tab-buttons | underline-indicators flex" data-section="destinations" role="tablist" aria-label="destination list">
-        <button role="tab" aria-selected="true" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="moon-tab" data-selected="Moon" tabindex="0">Moon</button>
-        <button role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="mars-tab" data-selected="Mars" tabindex="-1">Mars</button>
-        <button role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="europa-tab" data-selected="Europa" tabindex="-1">Europa</button>
-        <button role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" aria-controls="titan-tab" data-selected="Titan" tabindex="-1">Titan</button>
+        <button type="button" role="tab" aria-selected="true" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Moon" tabindex="0">Moon</button>
+        <button type="button" role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Mars" tabindex="-1">Mars</button>
+        <button type="button" role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Europa" tabindex="-1">Europa</button>
+        <button type="button" role="tab" aria-selected="false" class="tab-button | uppercase text-accent ff-sans-cond letter-spacing-2 fs-300" data-selected="Titan" tabindex="-1">Titan</button>
       </div>
       <article class="destination-info flow">
         <h2 class="planet-title | fs-800 ff-serif uppercase" data-field="name" >Moon</h2>

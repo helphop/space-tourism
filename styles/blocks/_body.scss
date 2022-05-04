@@ -4,10 +4,11 @@ body {
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
   font-weight: var(--fw-normal);
-  line-height: 1.5;
+  line-height: 1.667;
   display: grid;
   grid-template-rows: min-content 1fr;
-  background-image: var(--bg-image) 0 / cover fixed;
+  background: var(--bg-image) 0 / cover fixed;
+  background-color: var(--clr-dark);
   overflow-x: hidden;
 }
 

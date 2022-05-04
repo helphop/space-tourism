@@ -5,19 +5,27 @@
   padding-inline: 1.5rem;
   padding-bottom: 3rem;
 
-  > * {
-    max-width: 50ch;
+   * {
+    max-width: 45ch;
   }
 
 
   @include for-desktop-up {
     text-align: left;
-    column-gap: var(--container-gap, 2rem);
+    column-gap: var(--container-gap, 4rem);
     grid-template-columns: minmax(0.5rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(0.5rem, 1fr);
     padding-bottom: max(5rem, 20vh);
   }
 
   &--home {
+    h1 span {
+      margin-top: 0.25em;
+    }
+
+    @include for-phone-only {
+      > :last-child {align-self: end;}
+    }
+
     @include for-desktop-up {
       align-items: end;
 

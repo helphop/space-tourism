@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
     <script src="javascript/navigation.js" defer></script>
     <title>Frontend Mentor | Space tourism website</title>
     </head>
@@ -13,11 +13,11 @@
         <header class="primary-header flex">
             <div>
                 <!-- Must put the dimensions of images so the browser knows the aspect ratio-->
-                <img src="assets/shared/logo.svg" class="logo" alt="White Circle Logo" width="40px" height="40px">
+                <img src="assets/shared/logo.svg" class="logo" alt="White Circle" width="40px" height="40px">
             </div>
             <!-- For accessibility we should always put the toggle button inside the nav element -->
-            <nav  role="navigation" aria-label="primary">
-                <button  id='menu-trigger' class="menu-trigger click-target-helper" aria-controls="primary-navigation" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <nav  aria-label="primary">
+                <button  type="button" id='menu-trigger' class="menu-trigger click-target-helper" aria-controls="primary-navigation-list" aria-haspopup="true" aria-expanded="false" tabindex="0">
                     <span class="sr-only">Open Menu</span>
                 </button>
                 <ul id="primary-navigation-list" class="primary-navigation-list underline-indicators  | flex">
@@ -30,10 +30,10 @@
         </header>
         <!-- every page must have a main element -->
         <main id="main-content" class="grid-container grid-container--home">
-            <div>
+            <div class="flow">
                 <h1 class="ff-sans-cond fs-500 uppercase text-accent letter-spacing-1">So, you want to travel to
                 <span class="ff-serif fs-900 text-white d-block">Space</span></h1>
-                <p>Let’s face it; if you want to go to space, you might as well genuinely go to
+                <p class="text-accent">Let’s face it; if you want to go to space, you might as well genuinely go to
                 outer space and not hover kind of on the edge of it. Well sit back, and relax
                 because we’ll give you a truly out of this world experience!</p>
             </div>

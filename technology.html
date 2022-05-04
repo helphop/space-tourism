@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
     <script src="javascript/navigation.js" defer></script>
     <script src="javascript/tabs.js" defer></script>
+
     <title>Frontend Mentor | Space tourism website</title>
   </head>
 
@@ -19,8 +20,8 @@
         <img src="assets/shared/logo.svg" class="logo" alt="White Circle Logo" width="40px" height="40px">
       </div>
       <!-- For accessibility we should always put the toggle button inside the nav element -->
-      <nav role="navigation" aria-label="primary">
-        <button id='menu-trigger' class="menu-trigger click-target-helper" aria-controls="primary-navigation"
+      <nav aria-label="primary">
+        <button id='menu-trigger' class="menu-trigger click-target-helper" aria-controls="primary-navigation-list"
           aria-haspopup="true" aria-expanded="false" tabindex="0">
           <span class="sr-only">Open Menu</span>
         </button>

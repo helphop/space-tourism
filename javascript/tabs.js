@@ -10,12 +10,17 @@
     }).catch(err => {
       console.log('an error has occurred');
   });
-
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const tabList = document.querySelector('[role="tablist"]');
   const tabs = tabList.querySelectorAll('[role="tab"]');
   const elementsToUpdate =document.querySelectorAll("[data-field]");
+
+  //must check if user wants reduced motion
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const animationDuration = reducedMotion ? 1000 : 400;
+
   const animationProperties = {
-          duration: 400,
+          duration: animationDuration,
           easing: 'ease-out',
           fill: 'both',
           iterations: 1
@@ -33,7 +38,7 @@
     //get the selected value from the clicked button
     let dataSelected = target.dataset.selected;
     //find the record in the JSON data
-    let datum = siteData[`${dataSection}`].find(record => record.name === `${dataSelected}`);
+    let datum = siteData[dataSection].find(record => record.name === dataSelected);
 
     //Update the field details
     [...elementsToUpdate].forEach(element => {
@@ -106,8 +111,8 @@
   }
 
   function updateButtonAttributes(button, tabIndex=0, ariaSelected='true') {
-    button.setAttribute('aria-selected', `${ariaSelected}`);
-    button.setAttribute('tabindex', `${tabIndex}`)
+    button.setAttribute('aria-selected', ariaSelected);
+    button.setAttribute('tabindex', tabIndex)
   }
 
   function updateField(element, data) {

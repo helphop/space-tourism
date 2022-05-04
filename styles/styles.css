@@ -60,25 +60,6 @@ button {
   cursor: pointer;
 }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-*::before,
-*::after {
-    -webkit-animation-duration: 0.01ms !important;
-            animation-duration: 0.01ms !important;
-    -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
-    -webkit-transition-duration: 0.01ms !important;
-         -o-transition-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
 :root {
   --phone-max: 37.4374em;
   --tab-port-min: 37.5em // 600px
@@ -148,7 +129,7 @@ button {
   --ff-serif: "Bellefair", var(--font-serif);
   --ff-sans-cond: "Barlow Condensed", var(--font-sans);
   --ff-sans-normal: "Barlow", var(--font-sans);
-  --fs-900: clamp(5rem, 8.5vw + 1rem, 9.375rem);
+  --fs-900: clamp(5rem, 14.5vw + 1rem, 9.375rem);
   --fs-800: 3.55rem;
   --fs-750: 1.75rem;
   --fs-700: 1.5rem;
@@ -440,11 +421,12 @@ body {
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
   font-weight: var(--fw-normal);
-  line-height: 1.5;
+  line-height: 1.667;
   display: grid;
   grid-template-rows: -webkit-min-content 1fr;
   grid-template-rows: min-content 1fr;
-  background-image: var(--bg-image) 0/cover fixed;
+  background: var(--bg-image) 0/cover fixed;
+  background-color: var(--clr-dark);
   overflow-x: hidden;
 }
 
@@ -777,17 +759,26 @@ body {
   padding-inline: 1.5rem;
   padding-bottom: 3rem;
 }
-.grid-container > * {
-  max-width: 50ch;
+.grid-container * {
+  max-width: 45ch;
 }
 @media (min-width: 56.25em) {
   .grid-container {
     text-align: left;
-    -webkit-column-gap: var(--container-gap, 2rem);
-       -moz-column-gap: var(--container-gap, 2rem);
-            column-gap: var(--container-gap, 2rem);
+    -webkit-column-gap: var(--container-gap, 4rem);
+       -moz-column-gap: var(--container-gap, 4rem);
+            column-gap: var(--container-gap, 4rem);
     grid-template-columns: minmax(0.5rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(0.5rem, 1fr);
     padding-bottom: max(5rem, 20vh);
+  }
+}
+.grid-container--home h1 span {
+  margin-top: 0.25em;
+}
+@media (max-width: 37.4374em) {
+  .grid-container--home > :last-child {
+    -ms-flex-item-align: end;
+        align-self: end;
   }
 }
 @media (min-width: 56.25em) {
