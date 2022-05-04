@@ -1,12 +1,12 @@
 .crew {
-  --bg-image: url(../../assets/crew/background-crew-mobile.jpg);
+  --bg-image: url('../assets/crew/background-crew-mobile.jpg');
 
   @include for-tablet-up {
-    --bg-image: url(../../assets/crew/background-crew-tablet.jpg);
+    --bg-image: url('../assets/crew/background-crew-tablet.jpg');
   }
 
   @include for-desktop-up {
-    --bg-image: url(../../assets/crew/background-crew-desktop.jpg);
+    --bg-image: url('../assets/crew/background-crew-desktop.jpg');
   }
 
 }

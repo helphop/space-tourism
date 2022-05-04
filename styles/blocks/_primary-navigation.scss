@@ -38,7 +38,7 @@
       right: 1.5rem;
       z-index: var(--layer-5);
       background: transparent;
-      background-image: url(../../assets/shared/icon-hamburger.svg);
+      background-image: url(../assets/shared/icon-hamburger.svg);
       background-repeat: no-repeat;
       background-position: center;
       --bg-size: 1.5rem;
@@ -51,7 +51,7 @@
     }
 
     .menu-trigger[aria-expanded="true"] {
-        background-image: url(../../assets/shared/icon-close.svg);
+        background-image: url(../assets/shared/icon-close.svg);
 
       ~ .primary-navigation-list {
         transform: translateX(0);
