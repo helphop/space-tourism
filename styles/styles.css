@@ -759,7 +759,7 @@ body {
   padding-inline: 1.5rem;
   padding-bottom: 3rem;
 }
-.grid-container * {
+.grid-container p {
   max-width: 45ch;
 }
 @media (min-width: 56.25em) {
@@ -955,7 +955,7 @@ body {
 }
 @media (min-width: 56.25em) {
   .grid-container--tech {
-    grid-template-columns: clamp(1.5rem, 15vw, 6vw) auto 1fr 1fr;
+    grid-template-columns: clamp(1.5rem, 15vw, 3rem) auto 1fr 1fr;
     grid-template-areas: ". title title title" ". tabs content image";
   }
   .grid-container--tech .tech-image {
@@ -965,7 +965,7 @@ body {
             justify-content: end;
   }
   .grid-container--tech .tech-image img {
-    min-height: 527px;
+    min-height: clamp(350px, 30vw, 527px);
   }
   .grid-container--tech .number-buttons {
     grid-auto-flow: row;

@@ -5,7 +5,7 @@
   padding-inline: 1.5rem;
   padding-bottom: 3rem;
 
-   * {
+   p {
     max-width: 45ch;
   }
 
@@ -228,8 +228,7 @@
     }
 
     @include for-desktop-up {
-      grid-template-columns: clamp(1.5rem, 15vw, 6vw) auto 1fr 1fr;
-      // justify-content: space-between;
+      grid-template-columns: clamp(1.5rem, 15vw, 3rem) auto 1fr 1fr;
       grid-template-areas:
          '. title title title'
          '. tabs content image';
@@ -238,7 +237,7 @@
         display: grid;
         justify-content: end;
         img {
-          min-height: 527px;
+          min-height: clamp(350px, 30vw, 527px);
         }
       }
 
