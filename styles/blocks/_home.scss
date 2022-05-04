@@ -1,12 +1,12 @@
 .home {
-     --bg-image: url(../../assets/home/background-home-mobile.jpg);
+     --bg-image: url(/assets/home/background-home-mobile.jpg);
 
     @include for-tablet-up {
-      --bg-image: url(../../assets/home/background-home-tablet.jpg);
+      --bg-image: url(/assets/home/background-home-tablet.jpg);
     }
 
     @include for-desktop-up {
-      --bg-image: url(../../assets/home/background-home-desktop.jpg);
+      --bg-image: url(/assets/home/background-home-desktop.jpg);
     }
 
 }
