@@ -973,16 +973,16 @@ body {
 }
 
 .home {
-  --bg-image: url(../assets/home/background-home-mobile.jpg);
+  --bg-image: url("../assets/home/background-home-mobile.jpg");
 }
 @media (min-width: 37.5em) {
   .home {
-    --bg-image: url(../assets/home/background-home-tablet.jpg);
+    --bg-image: url("../assets/home/background-home-tablet.jpg");
   }
 }
 @media (min-width: 56.25em) {
   .home {
-    --bg-image: url(../assets/home/background-home-desktop.jpg);
+    --bg-image: url("../assets/home/background-home-desktop.jpg");
   }
 }
 
